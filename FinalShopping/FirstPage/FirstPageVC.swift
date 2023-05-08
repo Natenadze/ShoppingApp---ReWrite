@@ -26,11 +26,13 @@ class FirstPageVC: UIViewController {
     // MARK: - Selectors
     
     @objc func loginButtonTapped() {
-        print("Login Pressed")
+        let vc = AuthenticationVC(buttonTitle: "Login", isLogin: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
      
     @objc func registerButtonTapped() {
-        print("Register Pressed")
+        let vc = AuthenticationVC(buttonTitle: "Register", isLogin: false)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -75,10 +77,10 @@ extension FirstPageVC {
         NSLayoutConstraint.activate([
             
             // logo
-            logoView.heightAnchor.constraint(equalToConstant: 190),
-            logoView.widthAnchor.constraint(equalToConstant: 220),
-            logoView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            logoView.heightAnchor.constraint(equalToConstant: 200),
+            logoView.widthAnchor.constraint(equalToConstant: 240),
             logoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoView.bottomAnchor.constraint(equalTo: view.centerYAnchor),
             
             
             // Login Btn
