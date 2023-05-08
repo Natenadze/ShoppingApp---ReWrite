@@ -52,6 +52,9 @@ class AuthenticationVC: UIViewController {
         }else {
             print("Register button in action")
         }
+        
+        let vc  = ShoppingVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

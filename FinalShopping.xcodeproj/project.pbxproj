@@ -18,6 +18,10 @@
 		5DDC34D22A070A0E0000045F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34D12A070A0E0000045F /* UIColor+Extension.swift */; };
 		5DDC34DA2A09084C0000045F /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34D92A09084C0000045F /* AuthenticationVC.swift */; };
 		5DDC34FC2A0912B00000045F /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34FB2A0912B00000045F /* LogoView.swift */; };
+		5DFB51222A09267C00878F08 /* ShoppingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFB51212A09267C00878F08 /* ShoppingVC.swift */; };
+		5DFB51242A09270800878F08 /* ShoppingBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFB51232A09270800878F08 /* ShoppingBottomView.swift */; };
+		5DFB51272A092D2200878F08 /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFB51262A092D2200878F08 /* SummaryVC.swift */; };
+		5DFB51292A092D6F00878F08 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFB51282A092D6F00878F08 /* SummaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		5DDC34D12A070A0E0000045F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5DDC34D92A09084C0000045F /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
 		5DDC34FB2A0912B00000045F /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		5DFB51212A09267C00878F08 /* ShoppingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVC.swift; sourceTree = "<group>"; };
+		5DFB51232A09270800878F08 /* ShoppingBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBottomView.swift; sourceTree = "<group>"; };
+		5DFB51262A092D2200878F08 /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
+		5DFB51282A092D6F00878F08 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,8 @@
 				5DDC34CD2A06FC780000045F /* AppDelegate */,
 				5DDC34CE2A06FC880000045F /* FirstPage */,
 				5DDC34D42A0907BA0000045F /* Login+Register */,
+				5DFB51202A09261400878F08 /* MainPageShopping */,
+				5DFB51252A092CFE00878F08 /* Summary */,
 				5DDC34D32A070B270000045F /* Extensions */,
 				5DDC34A82A06FB1D0000045F /* LaunchScreen.storyboard */,
 				5DDC34A62A06FB1D0000045F /* Assets.xcassets */,
@@ -159,10 +169,76 @@
 		5DDC34D42A0907BA0000045F /* Login+Register */ = {
 			isa = PBXGroup;
 			children = (
-				5DDC34FB2A0912B00000045F /* LogoView.swift */,
-				5DDC34D92A09084C0000045F /* AuthenticationVC.swift */,
+				5DFB512C2A093A6D00878F08 /* View */,
+				5DFB512D2A093A7300878F08 /* Controller */,
 			);
 			path = "Login+Register";
+			sourceTree = "<group>";
+		};
+		5DFB51202A09261400878F08 /* MainPageShopping */ = {
+			isa = PBXGroup;
+			children = (
+				5DFB512A2A093A5B00878F08 /* View */,
+				5DFB512B2A093A6300878F08 /* Controller */,
+			);
+			path = MainPageShopping;
+			sourceTree = "<group>";
+		};
+		5DFB51252A092CFE00878F08 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				5DFB512E2A093A8200878F08 /* View */,
+				5DFB512F2A093A8700878F08 /* Controller */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		5DFB512A2A093A5B00878F08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DFB51232A09270800878F08 /* ShoppingBottomView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5DFB512B2A093A6300878F08 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5DFB51212A09267C00878F08 /* ShoppingVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5DFB512C2A093A6D00878F08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DDC34FB2A0912B00000045F /* LogoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5DFB512D2A093A7300878F08 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5DDC34D92A09084C0000045F /* AuthenticationVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5DFB512E2A093A8200878F08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DFB51282A092D6F00878F08 /* SummaryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5DFB512F2A093A8700878F08 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5DFB51262A092D2200878F08 /* SummaryVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,8 +374,12 @@
 				5DDC34A52A06FB1C0000045F /* FinalShopping.xcdatamodeld in Sources */,
 				5DDC34FC2A0912B00000045F /* LogoView.swift in Sources */,
 				5DDC349F2A06FB1C0000045F /* FirstPageVC.swift in Sources */,
+				5DFB51242A09270800878F08 /* ShoppingBottomView.swift in Sources */,
 				5DDC349B2A06FB1C0000045F /* AppDelegate.swift in Sources */,
+				5DFB51222A09267C00878F08 /* ShoppingVC.swift in Sources */,
 				5DDC34D22A070A0E0000045F /* UIColor+Extension.swift in Sources */,
+				5DFB51292A092D6F00878F08 /* SummaryView.swift in Sources */,
+				5DFB51272A092D2200878F08 /* SummaryVC.swift in Sources */,
 				5DDC34DA2A09084C0000045F /* AuthenticationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
