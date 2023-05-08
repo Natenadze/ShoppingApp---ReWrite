@@ -10,18 +10,24 @@ import UIKit
 class SummaryVC: UIViewController {
     
     // MARK: - Properties
-    let tableView = UITableView()
-    let bottomView = ShoppingBottomView()
+    private let tableView = UITableView()
+    private let bottomView = SummaryView()
+    private let payButton = UIButton(type: .system)
     
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
+        view.backgroundColor = .systemGray6
         style()
         layout()
+    }
+    
+    // MARK: -  Selectors
+    
+    @objc func payButtonTapped() {
+        print("asdasdsa")
     }
     
 }
@@ -49,8 +55,20 @@ extension SummaryVC {
     func style() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         bottomView.translatesAutoresizingMaskIntoConstraints = false
+        payButton.translatesAutoresizingMaskIntoConstraints = false
         
-        navigationController?.navigationBar.isHidden = true
+        // Table View
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        navigationController?.navigationBar.isHidden = false
+        
+        payButton.setTitle("Pay", for: .normal)
+        payButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        payButton.setTitleColor(.white, for: .normal)
+        payButton.backgroundColor = .buttonCustomColor
+        payButton.layer.cornerRadius = 6
+        payButton.addTarget(self, action: #selector(payButtonTapped), for: .touchUpInside)
         
         
     }
@@ -58,6 +76,7 @@ extension SummaryVC {
     func layout() {
         view.addSubview(tableView)
         view.addSubview(bottomView)
+        view.addSubview(payButton)
        
         
         NSLayoutConstraint.activate([
@@ -69,10 +88,15 @@ extension SummaryVC {
             tableView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
             
             // bottomView
-            bottomView.heightAnchor.constraint(equalToConstant: 230),
-            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bottomView.heightAnchor.constraint(equalToConstant: 200),
             bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor)
+            view.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor),
+            bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            payButton.heightAnchor.constraint(equalToConstant: 50),
+            payButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: payButton.trailingAnchor, multiplier: 2),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: payButton.bottomAnchor, multiplier: 0.3)
         ])
     }
 }

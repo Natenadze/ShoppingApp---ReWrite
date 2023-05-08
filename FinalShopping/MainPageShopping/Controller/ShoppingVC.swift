@@ -25,10 +25,15 @@ class ShoppingVC: UIViewController {
         layout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     // MARK: - Selectors
     
     @objc func goToSummaryTapped() {
-        print("go to summary")
+        let vc = SummaryVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -58,7 +63,6 @@ extension ShoppingVC {
         bottomView.translatesAutoresizingMaskIntoConstraints = false
         goToSummaryBtn.translatesAutoresizingMaskIntoConstraints = false
         
-        navigationController?.navigationBar.isHidden = true
         
         // button
         goToSummaryBtn.addTarget(self, action: #selector(goToSummaryTapped), for: .touchUpInside)

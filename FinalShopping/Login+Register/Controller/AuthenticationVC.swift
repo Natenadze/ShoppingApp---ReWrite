@@ -48,9 +48,9 @@ class AuthenticationVC: UIViewController {
     @objc func buttonTapped() {
         
         if isLogin {
-            print("Login button in action")
+            
         }else {
-            print("Register button in action")
+            
         }
         
         let vc  = ShoppingVC()
