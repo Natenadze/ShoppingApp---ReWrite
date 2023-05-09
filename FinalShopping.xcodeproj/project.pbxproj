@@ -11,6 +11,9 @@
 		5D71623C2A0A878C0064DA54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D71623B2A0A878C0064DA54 /* GoogleService-Info.plist */; };
 		5D71623F2A0A88400064DA54 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5D71623E2A0A88400064DA54 /* FirebaseAuth */; };
 		5D7162412A0A88400064DA54 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5D7162402A0A88400064DA54 /* FirebaseFirestore */; };
+		5D7162442A0ABDA50064DA54 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162432A0ABDA50064DA54 /* NetworkManager.swift */; };
+		5D7162462A0ABDEA0064DA54 /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162452A0ABDEA0064DA54 /* NetworkCheck.swift */; };
+		5D71626A2A0AC16F0064DA54 /* itemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162692A0AC16F0064DA54 /* itemCell.swift */; };
 		5DC5B1732A0A66F600B3B140 /* PaymentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5B1722A0A66F600B3B140 /* PaymentResult.swift */; };
 		5DC5B1762A0A6A4A00B3B140 /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5B1752A0A6A4A00B3B140 /* SummaryVC.swift */; };
 		5DDC349B2A06FB1C0000045F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC349A2A06FB1C0000045F /* AppDelegate.swift */; };
@@ -49,6 +52,9 @@
 /* Begin PBXFileReference section */
 		5D7162392A0A717B0064DA54 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		5D71623B2A0A878C0064DA54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5D7162432A0ABDA50064DA54 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5D7162452A0ABDEA0064DA54 /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
+		5D7162692A0AC16F0064DA54 /* itemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemCell.swift; sourceTree = "<group>"; };
 		5DC5B1722A0A66F600B3B140 /* PaymentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResult.swift; sourceTree = "<group>"; };
 		5DC5B1752A0A6A4A00B3B140 /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
 		5DDC34972A06FB1C0000045F /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D7162422A0ABD900064DA54 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5D7162432A0ABDA50064DA54 /* NetworkManager.swift */,
+				5D7162452A0ABDEA0064DA54 /* NetworkCheck.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		5DC5B1712A0A66D000B3B140 /* PaymentResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +144,7 @@
 		5DDC34992A06FB1C0000045F /* FinalShopping */ = {
 			isa = PBXGroup;
 			children = (
+				5D7162422A0ABD900064DA54 /* Networking */,
 				5DDC34CD2A06FC780000045F /* AppDelegate */,
 				5DDC34CE2A06FC880000045F /* FirstPage */,
 				5DDC34D42A0907BA0000045F /* Login+Register */,
@@ -217,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				5DFB51232A09270800878F08 /* ShoppingBottomView.swift */,
+				5D7162692A0AC16F0064DA54 /* itemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,8 +418,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DDC34A52A06FB1C0000045F /* FinalShopping.xcdatamodeld in Sources */,
+				5D7162462A0ABDEA0064DA54 /* NetworkCheck.swift in Sources */,
 				5DDC34FC2A0912B00000045F /* LogoView.swift in Sources */,
 				5DDC349F2A06FB1C0000045F /* FirstPageVC.swift in Sources */,
+				5D71626A2A0AC16F0064DA54 /* itemCell.swift in Sources */,
+				5D7162442A0ABDA50064DA54 /* NetworkManager.swift in Sources */,
 				5DFB51242A09270800878F08 /* ShoppingBottomView.swift in Sources */,
 				5DDC349B2A06FB1C0000045F /* AppDelegate.swift in Sources */,
 				5DC5B1762A0A6A4A00B3B140 /* SummaryVC.swift in Sources */,

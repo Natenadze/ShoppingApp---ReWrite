@@ -10,9 +10,9 @@ import UIKit
 class ShoppingVC: UIViewController {
     
     // MARK: - Properties
-    let tableView = UITableView()
-    let bottomView = ShoppingBottomView()
-    let goToSummaryBtn = UIButton(type: .system)
+    private let tableView = UITableView()
+    private let bottomView = ShoppingBottomView()
+    private let goToSummaryBtn = UIButton(type: .system)
     
     
     // MARK: - LifeCycle
@@ -21,6 +21,8 @@ class ShoppingVC: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(itemCell.self, forCellReuseIdentifier: "cell")
+        
         style()
         layout()
     }
@@ -40,13 +42,23 @@ class ShoppingVC: UIViewController {
 
 extension ShoppingVC: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        126
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = String(indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! itemCell
+        
+        cell.itemImage.image = UIImage(named: "aaa")
+        cell.choosenQuantityLbl.text = "2"
+        cell.itemLbl.text = "Apple"
+        cell.priceLbl.text = "120"
+        cell.itemRemainingLbl.text = "17"
+        
         return cell
     }
     
