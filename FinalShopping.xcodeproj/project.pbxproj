@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D71623A2A0A717B0064DA54 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162392A0A717B0064DA54 /* RegisterVC.swift */; };
 		5DC5B1732A0A66F600B3B140 /* PaymentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5B1722A0A66F600B3B140 /* PaymentResult.swift */; };
 		5DC5B1762A0A6A4A00B3B140 /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5B1752A0A6A4A00B3B140 /* SummaryVC.swift */; };
 		5DDC349B2A06FB1C0000045F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC349A2A06FB1C0000045F /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D7162392A0A717B0064DA54 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		5DC5B1722A0A66F600B3B140 /* PaymentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResult.swift; sourceTree = "<group>"; };
 		5DC5B1752A0A6A4A00B3B140 /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
 		5DDC34972A06FB1C0000045F /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				5DDC34D92A09084C0000045F /* AuthenticationVC.swift */,
+				5D7162392A0A717B0064DA54 /* RegisterVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				5DFB51222A09267C00878F08 /* ShoppingVC.swift in Sources */,
 				5DDC34D22A070A0E0000045F /* UIColor+Extension.swift in Sources */,
 				5DFB51292A092D6F00878F08 /* SummaryView.swift in Sources */,
+				5D71623A2A0A717B0064DA54 /* RegisterVC.swift in Sources */,
 				5DDC34DA2A09084C0000045F /* AuthenticationVC.swift in Sources */,
 				5DC5B1732A0A66F600B3B140 /* PaymentResult.swift in Sources */,
 			);
