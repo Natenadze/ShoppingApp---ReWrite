@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthenticationVC: UIViewController {
+class LoginVC: UIViewController {
     
     // MARK: - Properties
     let topView = LogoView()
@@ -18,8 +18,6 @@ class AuthenticationVC: UIViewController {
     let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 50))
     let paddingView2 = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 50))
     
-    let isLogin: Bool
-    let buttonTitle: String
     
     
     
@@ -32,9 +30,8 @@ class AuthenticationVC: UIViewController {
     }
 
     
-    init(buttonTitle: String, isLogin: Bool) {
-        self.buttonTitle = buttonTitle
-        self.isLogin = isLogin
+    init() {
+ 
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -46,12 +43,7 @@ class AuthenticationVC: UIViewController {
     // MARK: - Selectors
     
     @objc func buttonTapped() {
-        
-        if isLogin {
-            
-        }else {
-            
-        }
+
         
         let vc  = ShoppingVC()
         navigationController?.pushViewController(vc, animated: true)
@@ -60,7 +52,7 @@ class AuthenticationVC: UIViewController {
 
 // MARK: - Style & Layout
 
-extension AuthenticationVC {
+extension LoginVC {
     
     func style() {
         
@@ -93,7 +85,7 @@ extension AuthenticationVC {
         
         // button
         button.backgroundColor = .buttonCustomColor
-        button.setTitle(buttonTitle, for: .normal)
+        button.setTitle("Login", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 6

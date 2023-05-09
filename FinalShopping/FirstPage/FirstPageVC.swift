@@ -26,12 +26,12 @@ class FirstPageVC: UIViewController {
     // MARK: - Selectors
     
     @objc func loginButtonTapped() {
-        let vc = AuthenticationVC(buttonTitle: "Login", isLogin: true)
+        let vc = LoginVC()
         navigationController?.pushViewController(vc, animated: true)
     }
      
     @objc func registerButtonTapped() {
-        let vc = AuthenticationVC(buttonTitle: "Register", isLogin: false)
+        let vc = RegisterVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     

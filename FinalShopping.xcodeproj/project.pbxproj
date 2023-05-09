@@ -19,7 +19,7 @@
 		5DDC34BF2A06FB1D0000045F /* FinalShoppingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34BE2A06FB1D0000045F /* FinalShoppingUITests.swift */; };
 		5DDC34C12A06FB1D0000045F /* FinalShoppingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34C02A06FB1D0000045F /* FinalShoppingUITestsLaunchTests.swift */; };
 		5DDC34D22A070A0E0000045F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34D12A070A0E0000045F /* UIColor+Extension.swift */; };
-		5DDC34DA2A09084C0000045F /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34D92A09084C0000045F /* AuthenticationVC.swift */; };
+		5DDC34DA2A09084C0000045F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34D92A09084C0000045F /* LoginVC.swift */; };
 		5DDC34FC2A0912B00000045F /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34FB2A0912B00000045F /* LogoView.swift */; };
 		5DFB51222A09267C00878F08 /* ShoppingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFB51212A09267C00878F08 /* ShoppingVC.swift */; };
 		5DFB51242A09270800878F08 /* ShoppingBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFB51232A09270800878F08 /* ShoppingBottomView.swift */; };
@@ -60,7 +60,7 @@
 		5DDC34BE2A06FB1D0000045F /* FinalShoppingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalShoppingUITests.swift; sourceTree = "<group>"; };
 		5DDC34C02A06FB1D0000045F /* FinalShoppingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalShoppingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5DDC34D12A070A0E0000045F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		5DDC34D92A09084C0000045F /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
+		5DDC34D92A09084C0000045F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5DDC34FB2A0912B00000045F /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		5DFB51212A09267C00878F08 /* ShoppingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVC.swift; sourceTree = "<group>"; };
 		5DFB51232A09270800878F08 /* ShoppingBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBottomView.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 		5DFB512D2A093A7300878F08 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5DDC34D92A09084C0000045F /* AuthenticationVC.swift */,
+				5DDC34D92A09084C0000045F /* LoginVC.swift */,
 				5D7162392A0A717B0064DA54 /* RegisterVC.swift */,
 			);
 			path = Controller;
@@ -395,7 +395,7 @@
 				5DDC34D22A070A0E0000045F /* UIColor+Extension.swift in Sources */,
 				5DFB51292A092D6F00878F08 /* SummaryView.swift in Sources */,
 				5D71623A2A0A717B0064DA54 /* RegisterVC.swift in Sources */,
-				5DDC34DA2A09084C0000045F /* AuthenticationVC.swift in Sources */,
+				5DDC34DA2A09084C0000045F /* LoginVC.swift in Sources */,
 				5DC5B1732A0A66F600B3B140 /* PaymentResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -69,6 +69,7 @@ extension PaymentResultVC {
         button.setTitle("Done", for: .normal)
         button.tintColor = .white
         button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
         button.backgroundColor = .buttonCustomColor
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
