@@ -2,7 +2,7 @@
 //  SummaryVC.swift
 //  FinalShopping
 //
-//  Created by Davit Natenadze on 08.05.23.
+//  Created by Davit Natenadze on 09.05.23.
 //
 
 import UIKit
@@ -27,7 +27,12 @@ class SummaryVC: UIViewController {
     // MARK: -  Selectors
     
     @objc func payButtonTapped() {
-        print("asdasdsa")
+        
+        guard let image = UIImage(named: "decline") else { return }
+        
+        // TODO: - put related message
+        let vc = PaymentResultVC(image: image, message: "Put some message here")
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
