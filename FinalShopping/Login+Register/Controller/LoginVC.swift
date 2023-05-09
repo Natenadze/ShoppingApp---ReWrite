@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginVC: UIViewController {
     
@@ -30,6 +31,8 @@ class LoginVC: UIViewController {
     }
 
     
+    // MARK: - Init
+    
     init() {
  
         super.init(nibName: nil, bundle: nil)
@@ -40,15 +43,35 @@ class LoginVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     // MARK: - Selectors
     
     @objc func buttonTapped() {
-
         
-        let vc  = ShoppingVC()
-        navigationController?.pushViewController(vc, animated: true)
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty
+        else {
+            // TODO: - // Handle error case
+            print("Error in login")
+            return
+        }
+
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let _ = error {
+                print("error signin ")
+            }
+
+            if let _ = result {
+                let vc  = ShoppingVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        
+        
     }
 }
+
+
 
 // MARK: - Style & Layout
 
