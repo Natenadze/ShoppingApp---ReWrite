@@ -11,8 +11,10 @@ class FirstPageVC: UIViewController {
     
     // MARK: - Properties
     let logoView = UIImageView()
-    let loginButton = UIButton(type: .system)
+    let loginButton = UIButton()
     let registerButton = UIButton(type: .system)
+    
+    
     
     
     // MARK: - LifeCycle
@@ -51,19 +53,11 @@ extension FirstPageVC {
         logoView.image = UIImage(named: "city")
         
         // Login Btn
-        loginButton.backgroundColor = .buttonCustomColor
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
-        loginButton.setTitleColor(.white, for: .normal)
-        loginButton.layer.cornerRadius = 6
+        loginButton.setup(withTitle: "Login")
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         
         // Register Btn
-        registerButton.backgroundColor = .buttonCustomColor
-        registerButton.setTitle("Register", for: .normal)
-        registerButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
-        registerButton.setTitleColor(.white, for: .normal)
-        registerButton.layer.cornerRadius = 6
+        registerButton.setup(withTitle: "Register")
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         
         

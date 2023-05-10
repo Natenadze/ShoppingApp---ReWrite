@@ -81,37 +81,20 @@ extension LoginVC {
         
         topView.translatesAutoresizingMaskIntoConstraints = false
         
-        
+        // stack
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 16
         
         // email
-        
-        emailTextField.placeholder = "Email"
-        emailTextField.layer.cornerRadius = 6
-        emailTextField.keyboardType = .emailAddress
-        emailTextField.autocorrectionType = .no
-        emailTextField.autocapitalizationType = .none
-        emailTextField.backgroundColor = .systemGray6
-        emailTextField.leftView = paddingView
-        emailTextField.leftViewMode = .always
+        emailTextField.setup(withPlaceholder: "Email", paddingView: paddingView)
         
         // password
-        passwordTextField.placeholder = "Password"
-        passwordTextField.layer.cornerRadius = 6
+        passwordTextField.setup(withPlaceholder: "Password", paddingView: paddingView2)
         passwordTextField.isSecureTextEntry = true
-        passwordTextField.backgroundColor = .systemGray6
-        passwordTextField.leftView = paddingView2
-        passwordTextField.leftViewMode = .always
-        
         
         // button
-        button.backgroundColor = .buttonCustomColor
-        button.setTitle("Login", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 6
+        button.setup(withTitle: "Login")
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
        
