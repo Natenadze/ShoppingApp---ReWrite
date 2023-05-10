@@ -30,5 +30,4 @@ class Product: Codable {
           return stock == 0 ? UIColor.red : UIColor.black
       }
 
-    
 }

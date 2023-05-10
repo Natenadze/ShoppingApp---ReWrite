@@ -35,17 +35,27 @@ class itemCell: UITableViewCell {
     }
     
     
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
     }
 
-    
-    
+
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    // MARK: - Helper
+    
+    func setupCell(withData data: Product) {
+        itemImage.image = UIImage(named: "aaa")
+        choosenQuantityLbl.text = "0"
+        itemLbl.text = data.title
+        priceLbl.text = String(data.price)
+        itemRemainingLbl.text = String(data.stock)
     }
     
     // MARK: - Selectors
@@ -61,7 +71,7 @@ class itemCell: UITableViewCell {
 }
 
 
-// MARK: -
+// MARK: - Style & Layout
 
 extension itemCell {
     
@@ -76,10 +86,15 @@ extension itemCell {
         xSign.translatesAutoresizingMaskIntoConstraints = false
         dolarSign.translatesAutoresizingMaskIntoConstraints = false
         
+        choosenQuantityLbl.textAlignment = .center
+        choosenQuantityLbl.font = UIFont.boldSystemFont(ofSize: 23)
+        
         plusBtn.setTitle("+", for: .normal)
+        plusBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 29)
         plusBtn.addTarget(self, action: #selector(plusBtnTapped), for: .touchUpInside)
         
         minusBtn.setTitle("-", for: .normal)
+        minusBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 29)
         minusBtn.addTarget(self, action: #selector(minusBtnTapped), for: .touchUpInside)
         
         xSign.text = "x"
@@ -133,13 +148,13 @@ extension itemCell {
             plusBtn.bottomAnchor.constraint(equalTo: itemImage.bottomAnchor),
             
             // choosen Quantity
-            plusBtn.leadingAnchor.constraint(equalToSystemSpacingAfter: choosenQuantityLbl.trailingAnchor, multiplier: 1),
+            plusBtn.leadingAnchor.constraint(equalToSystemSpacingAfter: choosenQuantityLbl.trailingAnchor, multiplier: 0.1),
             choosenQuantityLbl.bottomAnchor.constraint(equalTo: itemImage.bottomAnchor),
             
             
             minusBtn.heightAnchor.constraint(equalTo: choosenQuantityLbl.heightAnchor),
             minusBtn.widthAnchor.constraint(equalTo: choosenQuantityLbl.widthAnchor),
-            choosenQuantityLbl.leadingAnchor.constraint(equalToSystemSpacingAfter: minusBtn.trailingAnchor, multiplier: 1),
+            choosenQuantityLbl.leadingAnchor.constraint(equalToSystemSpacingAfter: minusBtn.trailingAnchor, multiplier: 0.1),
             minusBtn.bottomAnchor.constraint(equalTo: itemImage.bottomAnchor),
             
             

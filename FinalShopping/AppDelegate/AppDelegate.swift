@@ -22,9 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        let navigation = UINavigationController(rootViewController: FirstPageVC())
-        window?.rootViewController = navigation
-//        window?.rootViewController = ShoppingVC()
+//        let navigation = UINavigationController(rootViewController: FirstPageVC())
+//        window?.rootViewController = navigation
+        let vm = ShoppingVM()
+        window?.rootViewController = ShoppingVC(viewModel: vm)
         
         return true
     }

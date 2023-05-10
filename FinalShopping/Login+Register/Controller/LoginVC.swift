@@ -59,10 +59,12 @@ class LoginVC: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let _ = error {
                 print("error signin ")
+                return
             }
 
             if let _ = result {
-                let vc  = ShoppingVC()
+                let vm = ShoppingVM()
+                let vc  = ShoppingVC(viewModel: vm)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

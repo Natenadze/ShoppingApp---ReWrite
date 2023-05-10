@@ -59,6 +59,7 @@ class RegisterVC: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let _ = error  {
                 print("Error registering user")
+                return
             }
             
             if let _ = result {

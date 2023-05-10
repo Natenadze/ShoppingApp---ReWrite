@@ -12,7 +12,10 @@ struct NetworkManager {
     
     static func performURLRequest<T:Codable>(_ url: String, completion: @escaping (T)-> Void) {
         
-        guard let url = URL(string: url) else {return}
+        guard let url = URL(string: url) else {
+            print("no url")
+            return
+        }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error {
@@ -21,13 +24,18 @@ struct NetworkManager {
             
             if let httpResponse = response as? HTTPURLResponse {
                 let status = httpResponse.statusCode
-                print(status)
-             
             }
             
-            guard let data else {return}
+            guard let data else {
+                print("no data")
+                return
+                
+            }
             let result = try? JSONDecoder().decode(T.self, from: data)
-            guard let result else {return}
+            guard let result else {
+                print("no result")
+                return
+            }
             
             DispatchQueue.main.async {
                 completion(result)
