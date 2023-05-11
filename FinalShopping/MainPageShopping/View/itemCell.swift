@@ -7,7 +7,18 @@
 
 import UIKit
 
+protocol CustomTableViewCellDelegate: AnyObject {
+    
+    func reloadData(forCell cell: UITableViewCell)
+}
+
+
 class itemCell: UITableViewCell {
+    
+    // MARK: - Create Cell Identifier
+    static var identifier: String {
+        return String(describing: self)
+    }
 
     // MARK: - Properties
     
@@ -21,6 +32,15 @@ class itemCell: UITableViewCell {
     let plusBtn = UIButton(type: .system)
     let minusBtn = UIButton(type: .system)
     
+    var cellData: Product! {
+        didSet {
+            setupCell()
+        }
+    }
+    
+    weak var delegate: CustomTableViewCellDelegate?
+
+    
     
     // MARK: - Lifecycle
     
@@ -33,39 +53,33 @@ class itemCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-
 
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        selectionStyle = .none
     }
     
     // MARK: - Helper
     
-    func setupCell(withData data: Product) {
+    func setupCell() {
         itemImage.image = UIImage(named: "aaa")
-        choosenQuantityLbl.text = "0"
-        itemLbl.text = data.title
-        priceLbl.text = String(data.price)
-        itemRemainingLbl.text = String(data.stock)
+        choosenQuantityLbl.text = String(cellData.choosenQuantity ?? 0)
+        itemLbl.text = cellData.title
+        priceLbl.text = String(cellData.price)
+        itemRemainingLbl.text = String(cellData.stock)
     }
     
     // MARK: - Selectors
     
     @objc func plusBtnTapped() {
-        print("+")
+        cellData.choosenQuantity = 1
+        print(itemLbl.text ?? "empty")
+        delegate?.reloadData(forCell: self)
     }
 
     @objc func minusBtnTapped() {
-        print("-")
+        print(itemRemainingLbl.text ?? "empty")
     }
 
 }

@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "86265B7C-A864-4494-BEDD-28C7C776DA96",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FinalShopping.xcodeproj",
+      "identifier" : "5DDC34962A06FB1C0000045F",
+      "name" : "FinalShopping"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FinalShopping.xcodeproj",
+        "identifier" : "5DDC34AF2A06FB1D0000045F",
+        "name" : "FinalShoppingTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FinalShopping.xcodeproj",
+        "identifier" : "5DDC34B92A06FB1D0000045F",
+        "name" : "FinalShoppingUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

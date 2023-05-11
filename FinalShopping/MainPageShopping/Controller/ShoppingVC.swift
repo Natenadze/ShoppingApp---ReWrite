@@ -8,7 +8,7 @@
 import UIKit
 
 class ShoppingVC: UIViewController {
-    
+ 
     
     // MARK: - Properties
     private let tableView = UITableView()
@@ -16,25 +16,18 @@ class ShoppingVC: UIViewController {
     private let goToSummaryBtn = UIButton(type: .system)
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
-    private let viewModel: ShoppingVM
+    private var viewModel: ShoppingVM
     
-    var sectionitems: [[Product]]? {
-        didSet {
-            tableView.reloadData()
-            activityIndicator.stopAnimating()
-        }
-    }
-   
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         setupData()
         style()
         layout()
-        
-        
+         
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +40,7 @@ class ShoppingVC: UIViewController {
     init(viewModel: ShoppingVM) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        
+
     }
     
     
@@ -60,10 +53,7 @@ class ShoppingVC: UIViewController {
     
     func setupData() {
         let url = "https://dummyjson.com/products"
-        
-        viewModel.fetchData(withUrl: url) { items in
-            self.sectionitems = items
-        }
+        viewModel.fetchData(withUrl: url)
         
     }
     
@@ -76,26 +66,45 @@ class ShoppingVC: UIViewController {
     
 }
 
+// MARK: - Delegate Methods
+
+extension ShoppingVC: CustomTableViewCellDelegate, ShoppingVMDelegate {
+    
+    // ShoppingVMDelegate
+    func updateView() {
+        tableView.reloadData()
+        activityIndicator.stopAnimating()
+    }
+    
+    // CustomTableViewCellDelegate
+    func reloadData(forCell cell: UITableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+           }
+    }
+}
+
 // MARK: - Table View
 
 extension ShoppingVC: UITableViewDataSource, UITableViewDelegate {
     
     //
     func numberOfSections(in tableView: UITableView) -> Int {
-        sectionitems?.count ?? 0
+        viewModel.getNumberOfSections()
     }
 
     //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return sectionitems?[section].count ?? 0
+        return viewModel.getNumberOfRowsInSection(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! itemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: itemCell.identifier, for: indexPath) as! itemCell
         
-        guard let data = sectionitems?[indexPath.section][indexPath.row] else { return cell}
-        cell.setupCell(withData: data) // Inject Data to Cell Itself
+        cell.delegate = self
+        let data = viewModel.sectionitems?[indexPath.section][indexPath.row]
+        cell.cellData = data
         
         return cell
     }
@@ -114,7 +123,7 @@ extension ShoppingVC: UITableViewDataSource, UITableViewDelegate {
         
         let label = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.frame.width - 20, height: 30))
         
-        label.text = sectionitems?[section][0].category.uppercased()
+        label.text = viewModel.sectionitems(section: section)
         label.font = UIFont.boldSystemFont(ofSize: 19)
         label.textColor = UIColor.white
         
@@ -144,7 +153,7 @@ extension ShoppingVC {
         // tableView
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(itemCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(itemCell.self, forCellReuseIdentifier: itemCell.identifier)
         
         // activity indicator
         activityIndicator.color = .gray

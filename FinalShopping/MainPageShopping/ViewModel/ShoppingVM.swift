@@ -7,26 +7,57 @@
 
 import UIKit
 
+protocol ShoppingVMDelegate: AnyObject {
+    
+    func updateView()
+}
+
 
 class ShoppingVM {
     
+    // MARK: - Model
+    
+    var sectionitems: [[Product]]? {
+        didSet {
+            delegate?.updateView()
+        }
+    }
+    
+    weak var delegate: ShoppingVMDelegate?
+    
+    // MARK: - Properties
+    
+    func sectionitems(section: Int) -> String {
+        sectionitems?[section][0].category.uppercased() ?? ""
+    }
+    
+    func getNumberOfRowsInSection(section: Int) -> Int {
+        sectionitems?[section].count ?? 0
+    }
+     
+    func getNumberOfSections() -> Int {
+        sectionitems?.count ?? 0
+    }
     
     
-    func fetchData(withUrl url: String, completion: @escaping ([[Product]]) -> Void) {
+    
+    
+
+    // MARK: - Networking
+    
+    func fetchData(withUrl url: String) {
         
-        var sectionitems = [[Product]]()
+        var items = [[Product]]()
         
         NetworkManager.performURLRequest(url) { (data: ProductModel)  in
             
             let itemsDict = Dictionary(grouping: data.products, by: {$0.category})
             
             for (_, item) in itemsDict.sorted(by: { $0.key < $1.key }) {
-                sectionitems.append(item)
+                items.append(item)
             }
             
-            DispatchQueue.main.async {
-                completion(sectionitems)
-            }
+            self.sectionitems = items
             
         }
     }

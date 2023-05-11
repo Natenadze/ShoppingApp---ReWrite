@@ -22,9 +22,9 @@ struct NetworkManager {
                 print(error.localizedDescription)
             }
             
-            if let httpResponse = response as? HTTPURLResponse {
-                let status = httpResponse.statusCode
-            }
+//            if let httpResponse = response as? HTTPURLResponse {
+//                let status = httpResponse.statusCode
+//            }
             
             guard let data else {
                 print("no data")
