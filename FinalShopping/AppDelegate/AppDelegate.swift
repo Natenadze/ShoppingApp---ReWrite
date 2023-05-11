@@ -24,8 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .systemBackground
 //        let navigation = UINavigationController(rootViewController: FirstPageVC())
 //        window?.rootViewController = navigation
+        
+        
         let vm = ShoppingVM()
-        window?.rootViewController = ShoppingVC(viewModel: vm)
+        let nav2 = UINavigationController(rootViewController: ShoppingVC(viewModel: vm))
+        window?.rootViewController = nav2
         
         return true
     }

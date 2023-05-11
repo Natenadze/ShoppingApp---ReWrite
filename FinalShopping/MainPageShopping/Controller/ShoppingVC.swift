@@ -60,6 +60,7 @@ class ShoppingVC: UIViewController {
     // MARK: - Selectors
     
     @objc func goToSummaryTapped() {
+        print("asd")
         let vc = SummaryVC()
         navigationController?.pushViewController(vc, animated: true)
     }

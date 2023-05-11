@@ -73,13 +73,30 @@ class itemCell: UITableViewCell {
     // MARK: - Selectors
     
     @objc func plusBtnTapped() {
-        cellData.choosenQuantity = 1
-        print(itemLbl.text ?? "empty")
-        delegate?.reloadData(forCell: self)
+        
+        guard let choosenQuantity = Int(choosenQuantityLbl.text!) else { return }
+        guard let remainingQuantity = Int(itemRemainingLbl.text!) else { return }
+        
+        if choosenQuantity < remainingQuantity {
+            choosenQuantityLbl.text = String(choosenQuantity + 1)
+        } else {
+            return
+        }
+        
+        
+        
+//        delegate?.reloadData(forCell: self)
     }
 
     @objc func minusBtnTapped() {
-        print(itemRemainingLbl.text ?? "empty")
+        
+        guard let choosenQuantity = Int(choosenQuantityLbl.text!) else { return }
+        
+        if choosenQuantity != 0 {
+            choosenQuantityLbl.text = String(choosenQuantity - 1)
+        } else {
+            return
+        }
     }
 
 }

@@ -40,13 +40,20 @@ class SummaryVC: UIViewController {
 extension SummaryVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = String(indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SummaryCell.identifier, for: indexPath) as! SummaryCell
+        
+        
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        106  // image height + paddings (top + bottom) / 110 + 8 + 8
     }
     
     
@@ -65,6 +72,7 @@ extension SummaryVC {
         // Table View
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(SummaryCell.self, forCellReuseIdentifier: SummaryCell.identifier)
         
         navigationController?.navigationBar.isHidden = false
         
