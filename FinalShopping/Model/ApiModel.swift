@@ -27,7 +27,7 @@ class Product: Codable {
     }
     
     var textColor: UIColor {
-          return stock == 0 ? UIColor.red : UIColor.black
-      }
-
+        return stock == 0 ? UIColor.red : UIColor.black
+    }
+    
 }
