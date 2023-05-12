@@ -17,6 +17,8 @@ class ShoppingVC: UIViewController {
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     private var viewModel: ShoppingVM
+
+    var busket = [BusketModel]()
     
     
     // MARK: - LifeCycle
@@ -60,15 +62,20 @@ class ShoppingVC: UIViewController {
     // MARK: - Selectors
     
     @objc func goToSummaryTapped() {
-        let vc = SummaryVC()
-        navigationController?.pushViewController(vc, animated: true)
+        // TODO: - pass correct VM here
+        
+            let vm = SummaryVM(busketModel: busket)
+            let vc = SummaryVC(viewModel: vm)
+            navigationController?.pushViewController(vc, animated: true)
     }
     
 }
 
 // MARK: - Delegate Methods
 
-extension ShoppingVC: CustomTableViewCellDelegate, ShoppingVMDelegate {
+extension ShoppingVC: ShoppingCellDelegate, ShoppingVMDelegate {
+    
+    
     
     // ShoppingVMDelegate
     func updateView() {
@@ -76,12 +83,43 @@ extension ShoppingVC: CustomTableViewCellDelegate, ShoppingVMDelegate {
         activityIndicator.stopAnimating()
     }
     
-    // CustomTableViewCellDelegate
+    // ShoppingCellDelegate
+    
     func reloadData(forCell cell: UITableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             tableView.reloadRows(at: [indexPath], with: .automatic)
            }
     }
+    
+    func updateBusket(item: BusketModel, isAdding: Bool) {
+        if isAdding {
+            var foundItem = false
+            
+            for (index, busketItem) in busket.enumerated() {
+                if busketItem.title == item.title {
+                    busket[index].quantity += 1
+                    foundItem = true
+                    break
+                }
+            }
+            
+            if !foundItem {
+                busket.append(item)
+            }
+        } else {
+            for (index, busketItem) in busket.enumerated() {
+                if busketItem.title == item.title {
+                    if busket[index].quantity == 1 {
+                        busket.remove(at: index)
+                        break
+                    }
+                    busket[index].quantity -= 1
+                }
+            }
+        }
+    }
+
+
 }
 
 // MARK: - Table View
@@ -90,7 +128,7 @@ extension ShoppingVC: UITableViewDataSource, UITableViewDelegate {
     
     //
     func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.getNumberOfSections()
+        viewModel.getNumberOfSections
     }
 
     //
@@ -100,7 +138,7 @@ extension ShoppingVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.identifier, for: indexPath) as! ItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingCell.identifier, for: indexPath) as! ShoppingCell
         
         cell.delegate = self
         let data = viewModel.sectionitems?[indexPath.section][indexPath.row]
@@ -153,7 +191,7 @@ extension ShoppingVC {
         // tableView
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(ItemCell.self, forCellReuseIdentifier: ItemCell.identifier)
+        tableView.register(ShoppingCell.self, forCellReuseIdentifier: ShoppingCell.identifier)
         
         // activity indicator
         activityIndicator.color = .gray

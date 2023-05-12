@@ -19,17 +19,15 @@ class SummaryView: UIView {
     private let delivery = UILabel()
     private let total = UILabel()
     
-    let subTotalTextLbl = UILabel()
-    let vatTextLbl = UILabel()
-    let deliveryTextLbl = UILabel()
-    let TotalTextLbl = UILabel()
+    var subTotalTextLbl = UILabel()
+    var vatTextLbl = UILabel()
+    var deliveryTextLbl = UILabel()
+    var TotalTextLbl = UILabel()
     
     private let dollarSign = UILabel()
     private let dollarSign2 = UILabel()
     private let dollarSign3 = UILabel()
     private let dollarSign4 = UILabel()
-    
-    
     
     
     

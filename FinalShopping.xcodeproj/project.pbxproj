@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3633962A0E437800032723 /* SummaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3633952A0E437800032723 /* SummaryVM.swift */; };
 		5D48C3212A0D0FD00014B0F3 /* ShoppingCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48C3202A0D0FD00014B0F3 /* ShoppingCellVM.swift */; };
 		5D48C3232A0D429F0014B0F3 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48C3222A0D429F0014B0F3 /* SummaryCell.swift */; };
 		5D48C3252A0D615E0014B0F3 /* BusketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48C3242A0D615E0014B0F3 /* BusketModel.swift */; };
@@ -17,7 +18,7 @@
 		5D7162412A0A88400064DA54 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5D7162402A0A88400064DA54 /* FirebaseFirestore */; };
 		5D7162442A0ABDA50064DA54 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162432A0ABDA50064DA54 /* NetworkManager.swift */; };
 		5D7162462A0ABDEA0064DA54 /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162452A0ABDEA0064DA54 /* NetworkCheck.swift */; };
-		5D71626A2A0AC16F0064DA54 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162692A0AC16F0064DA54 /* ItemCell.swift */; };
+		5D71626A2A0AC16F0064DA54 /* ShoppingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162692A0AC16F0064DA54 /* ShoppingCell.swift */; };
 		5DC5B1732A0A66F600B3B140 /* PaymentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5B1722A0A66F600B3B140 /* PaymentResult.swift */; };
 		5DC5B1762A0A6A4A00B3B140 /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5B1752A0A6A4A00B3B140 /* SummaryVC.swift */; };
 		5DCFFD592A0B897300DB39F0 /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFFD582A0B897300DB39F0 /* ApiModel.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D3633952A0E437800032723 /* SummaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVM.swift; sourceTree = "<group>"; };
 		5D48C31F2A0CED940014B0F3 /* FinalShopping.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FinalShopping.xctestplan; sourceTree = "<group>"; };
 		5D48C3202A0D0FD00014B0F3 /* ShoppingCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCellVM.swift; sourceTree = "<group>"; };
 		5D48C3222A0D429F0014B0F3 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 		5D71623B2A0A878C0064DA54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D7162432A0ABDA50064DA54 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5D7162452A0ABDEA0064DA54 /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
-		5D7162692A0AC16F0064DA54 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		5D7162692A0AC16F0064DA54 /* ShoppingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCell.swift; sourceTree = "<group>"; };
 		5DC5B1722A0A66F600B3B140 /* PaymentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResult.swift; sourceTree = "<group>"; };
 		5DC5B1752A0A6A4A00B3B140 /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
 		5DCFFD582A0B897300DB39F0 /* ApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModel.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D3633942A0E436000032723 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5D3633952A0E437800032723 /* SummaryVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5D7162422A0ABD900064DA54 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				5DFB512E2A093A8200878F08 /* View */,
+				5D3633942A0E436000032723 /* ViewModel */,
 				5DFB512F2A093A8700878F08 /* Controller */,
 			);
 			path = Summary;
@@ -284,7 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				5DFB51232A09270800878F08 /* ShoppingBottomView.swift */,
-				5D7162692A0AC16F0064DA54 /* ItemCell.swift */,
+				5D7162692A0AC16F0064DA54 /* ShoppingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -477,7 +488,7 @@
 				5DDC349F2A06FB1C0000045F /* FirstPageVC.swift in Sources */,
 				5D48C3232A0D429F0014B0F3 /* SummaryCell.swift in Sources */,
 				5DCFFD592A0B897300DB39F0 /* ApiModel.swift in Sources */,
-				5D71626A2A0AC16F0064DA54 /* ItemCell.swift in Sources */,
+				5D71626A2A0AC16F0064DA54 /* ShoppingCell.swift in Sources */,
 				5DCFFD632A0C0E0000DB39F0 /* ShoppingVM.swift in Sources */,
 				5D7162442A0ABDA50064DA54 /* NetworkManager.swift in Sources */,
 				5DFB51242A09270800878F08 /* ShoppingBottomView.swift in Sources */,
@@ -490,6 +501,7 @@
 				5DDC34D22A070A0E0000045F /* UIColor+Extension.swift in Sources */,
 				5D48C3252A0D615E0014B0F3 /* BusketModel.swift in Sources */,
 				5DFB51292A092D6F00878F08 /* SummaryView.swift in Sources */,
+				5D3633962A0E437800032723 /* SummaryVM.swift in Sources */,
 				5D71623A2A0A717B0064DA54 /* RegisterVC.swift in Sources */,
 				5DDC34DA2A09084C0000045F /* LoginVC.swift in Sources */,
 				5DC5B1732A0A66F600B3B140 /* PaymentResult.swift in Sources */,

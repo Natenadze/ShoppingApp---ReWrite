@@ -8,13 +8,14 @@
 import UIKit
 import Kingfisher
 
-protocol CustomTableViewCellDelegate: AnyObject {
+protocol ShoppingCellDelegate: AnyObject {
     
     func reloadData(forCell cell: UITableViewCell)
+    func updateBusket(item: BusketModel, isAdding: Bool)
 }
 
 
-class ItemCell: UITableViewCell {
+class ShoppingCell: UITableViewCell {
     
     // MARK: - Create Cell Identifier
     static var identifier: String {
@@ -24,12 +25,14 @@ class ItemCell: UITableViewCell {
     // MARK: - Properties
     
     let itemImage = UIImageView()
-    let itemLbl = UILabel()
-    let itemRemainingLbl = UILabel()
-    let xSign = UILabel()
+    let itemTitle = UILabel()
+    let stockLbl = UILabel()
     let priceLbl = UILabel()
-    let dolarSign = UILabel()
     let choosenQuantityLbl = UILabel()
+    
+    let dolarSign = UILabel()
+    let xSign = UILabel()
+    
     let plusBtn = UIButton(type: .system)
     let minusBtn = UIButton(type: .system)
     
@@ -39,7 +42,7 @@ class ItemCell: UITableViewCell {
         }
     }
     
-    weak var delegate: CustomTableViewCellDelegate?
+    weak var delegate: ShoppingCellDelegate?
 
     
     
@@ -67,31 +70,37 @@ class ItemCell: UITableViewCell {
         let url = URL(string: cellData.thumbnail)
         itemImage.kf.setImage(with: url)
         choosenQuantityLbl.text = String(cellData.choosenQuantity ?? 0)
-        itemLbl.text = cellData.title
+        itemTitle.text = cellData.title
         priceLbl.text = String(cellData.price)
-        itemRemainingLbl.text = String(cellData.stock)
+        stockLbl.text = String(cellData.stock)
     }
     
     // MARK: - Selectors
     
+    // TODO: - Refactor needed for button functions
     @objc func plusBtnTapped() {
         
         guard let choosenQuantity = Int(choosenQuantityLbl.text!) else { return }
-        guard let remainingQuantity = Int(itemRemainingLbl.text!) else { return }
+        guard let remainingQuantity = Int(stockLbl.text!) else { return }
         
         if choosenQuantity < remainingQuantity {
-            choosenQuantityLbl.text = String(choosenQuantity + 1)
+            cellData.choosenQuantity = choosenQuantity + 1
         } else {
             return
         }
         
         
+        let item = BusketModel(image: itemImage.image!,
+                               title: itemTitle.text!,
+                               quantity: choosenQuantity + 1,
+                               subTotal: priceLbl.text!)
         
-//        delegate?.reloadData(forCell: self)
+        delegate?.updateBusket(item: item, isAdding: true)
+        delegate?.reloadData(forCell: self)
     }
 
     @objc func minusBtnTapped() {
-        
+    
         guard let choosenQuantity = Int(choosenQuantityLbl.text!) else { return }
         
         if choosenQuantity != 0 {
@@ -99,6 +108,13 @@ class ItemCell: UITableViewCell {
         } else {
             return
         }
+        
+        let item = BusketModel(image: itemImage.image!,
+                               title: itemTitle.text!,
+                               quantity: choosenQuantity + 1,
+                               subTotal: priceLbl.text!)
+        
+        delegate?.updateBusket(item: item, isAdding: false)
     }
 
 }
@@ -106,12 +122,12 @@ class ItemCell: UITableViewCell {
 
 // MARK: - Style & Layout
 
-extension ItemCell {
+extension ShoppingCell {
     
     func style1() {
         itemImage.translatesAutoresizingMaskIntoConstraints = false
-        itemLbl.translatesAutoresizingMaskIntoConstraints = false
-        itemRemainingLbl.translatesAutoresizingMaskIntoConstraints = false
+        itemTitle.translatesAutoresizingMaskIntoConstraints = false
+        stockLbl.translatesAutoresizingMaskIntoConstraints = false
         priceLbl.translatesAutoresizingMaskIntoConstraints = false
         choosenQuantityLbl.translatesAutoresizingMaskIntoConstraints = false
         plusBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -141,8 +157,8 @@ extension ItemCell {
     func layout() {
         
         contentView.addSubview(itemImage)
-        contentView.addSubview(itemLbl)
-        contentView.addSubview(itemRemainingLbl)
+        contentView.addSubview(itemTitle)
+        contentView.addSubview(stockLbl)
         contentView.addSubview(priceLbl)
         contentView.addSubview(choosenQuantityLbl)
         contentView.addSubview(plusBtn)
@@ -159,18 +175,18 @@ extension ItemCell {
             bottomAnchor.constraint(equalToSystemSpacingBelow: itemImage.bottomAnchor, multiplier: 1),
             
             // title
-            itemLbl.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 3),
-            itemLbl.leadingAnchor.constraint(equalToSystemSpacingAfter: itemImage.trailingAnchor, multiplier: 2),
+            itemTitle.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 3),
+            itemTitle.leadingAnchor.constraint(equalToSystemSpacingAfter: itemImage.trailingAnchor, multiplier: 2),
             
             // item Remaining
-            itemRemainingLbl.centerYAnchor.constraint(equalTo: itemImage.centerYAnchor),
-            itemRemainingLbl.leadingAnchor.constraint(equalTo: itemLbl.leadingAnchor),
-            xSign.leadingAnchor.constraint(equalToSystemSpacingAfter: itemRemainingLbl.trailingAnchor, multiplier: 0.1),
-            xSign.centerYAnchor.constraint(equalTo: itemRemainingLbl.centerYAnchor),
+            stockLbl.centerYAnchor.constraint(equalTo: itemImage.centerYAnchor),
+            stockLbl.leadingAnchor.constraint(equalTo: itemTitle.leadingAnchor),
+            xSign.leadingAnchor.constraint(equalToSystemSpacingAfter: stockLbl.trailingAnchor, multiplier: 0.1),
+            xSign.centerYAnchor.constraint(equalTo: stockLbl.centerYAnchor),
             
             // price
             bottomAnchor.constraint(equalToSystemSpacingBelow: priceLbl.bottomAnchor, multiplier: 3),
-            priceLbl.leadingAnchor.constraint(equalTo: itemLbl.leadingAnchor),
+            priceLbl.leadingAnchor.constraint(equalTo: itemTitle.leadingAnchor),
             dolarSign.leadingAnchor.constraint(equalToSystemSpacingAfter: priceLbl.trailingAnchor, multiplier: 0.1),
             dolarSign.centerYAnchor.constraint(equalTo: priceLbl.centerYAnchor),
             

@@ -11,8 +11,10 @@ class SummaryVC: UIViewController {
     
     // MARK: - Properties
     private let tableView = UITableView()
-    private let bottomView = SummaryView()
+    private let summaryView = SummaryView()
     private let payButton = UIButton(type: .system)
+    
+    let viewModel: SummaryVM
     
     
     // MARK: - LifeCycle
@@ -23,6 +25,18 @@ class SummaryVC: UIViewController {
         style()
         layout()
     }
+    
+    // MARK: - Init
+    
+    init(viewModel: SummaryVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     // MARK: -  Selectors
     
@@ -41,13 +55,13 @@ extension SummaryVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return viewModel.busketModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SummaryCell.identifier, for: indexPath) as! SummaryCell
         
-        
+        cell.busketModel = viewModel.busketModel[indexPath.row]
         
         return cell
     }
@@ -66,15 +80,24 @@ extension SummaryVC {
     
     func style() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        summaryView.translatesAutoresizingMaskIntoConstraints = false
         payButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        navigationController?.navigationBar.isHidden = false
         
         // Table View
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(SummaryCell.self, forCellReuseIdentifier: SummaryCell.identifier)
         
-        navigationController?.navigationBar.isHidden = false
+        // summaryView
+        
+        summaryView.subTotalTextLbl.text = String(viewModel.subTotal)
+        summaryView.vatTextLbl.text      = String(viewModel.vat)
+        summaryView.deliveryTextLbl.text = String(viewModel.delivery)
+        summaryView.TotalTextLbl.text    = String(viewModel.Total)
+        
+        // pay button
         
         payButton.setTitle("Pay", for: .normal)
         payButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
@@ -88,7 +111,7 @@ extension SummaryVC {
     
     func layout() {
         view.addSubview(tableView)
-        view.addSubview(bottomView)
+        view.addSubview(summaryView)
         view.addSubview(payButton)
        
         
@@ -98,13 +121,13 @@ extension SummaryVC {
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: summaryView.topAnchor),
             
             // bottomView
-            bottomView.heightAnchor.constraint(equalToConstant: 200),
-            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor),
-            bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            summaryView.heightAnchor.constraint(equalToConstant: 200),
+            summaryView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: summaryView.trailingAnchor),
+            summaryView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             payButton.heightAnchor.constraint(equalToConstant: 50),
             payButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),

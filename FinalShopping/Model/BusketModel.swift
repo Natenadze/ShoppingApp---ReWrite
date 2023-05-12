@@ -5,12 +5,12 @@
 //  Created by Davit Natenadze on 11.05.23.
 //
 
-import Foundation
+import UIKit
 
-struct BusketModel: Codable {
+struct BusketModel {
     
-    var image: String
+    var image: UIImage
     var title: String
     var quantity: Int
-    var subTotal: Int
+    var subTotal: String
 }

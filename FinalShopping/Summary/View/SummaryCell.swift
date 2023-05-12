@@ -25,7 +25,11 @@ class SummaryCell: UITableViewCell {
     let priceSumLbl = UILabel()
     let dolarSign = UILabel()
 
-  
+    var busketModel: BusketModel! {
+        didSet {
+            setupCell()
+        }
+    }
     
 
     
@@ -50,10 +54,12 @@ class SummaryCell: UITableViewCell {
     // MARK: - Helper
     
     func setupCell() {
-        
+        itemImage.image = busketModel.image
+        itemLbl.text = busketModel.title
+        quantityLbl.text = String(busketModel.quantity)
+        priceSumLbl.text = busketModel.subTotal
     }
     
-
 
 }
 
@@ -71,19 +77,8 @@ extension SummaryCell {
         dolarSign.translatesAutoresizingMaskIntoConstraints = false
         
       
-        itemImage.image = UIImage(named: "aaa")
-        
-        itemLbl.text = "Nokia"
-        
-        quantityLbl.text = "3"
-        
-        priceSumLbl.text = "740"
-        
         xSign.text = "x"
-        
         dolarSign.text = "$"
-        
-        
         
     }
     

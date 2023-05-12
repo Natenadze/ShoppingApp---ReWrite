@@ -35,7 +35,7 @@ class ShoppingVM {
         sectionitems?[section].count ?? 0
     }
      
-    func getNumberOfSections() -> Int {
+    var getNumberOfSections: Int {
         sectionitems?.count ?? 0
     }
     
