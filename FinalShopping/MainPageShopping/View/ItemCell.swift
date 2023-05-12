@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol CustomTableViewCellDelegate: AnyObject {
     
@@ -13,7 +14,7 @@ protocol CustomTableViewCellDelegate: AnyObject {
 }
 
 
-class itemCell: UITableViewCell {
+class ItemCell: UITableViewCell {
     
     // MARK: - Create Cell Identifier
     static var identifier: String {
@@ -63,7 +64,8 @@ class itemCell: UITableViewCell {
     // MARK: - Helper
     
     func setupCell() {
-        itemImage.image = UIImage(named: "aaa")
+        let url = URL(string: cellData.thumbnail)
+        itemImage.kf.setImage(with: url)
         choosenQuantityLbl.text = String(cellData.choosenQuantity ?? 0)
         itemLbl.text = cellData.title
         priceLbl.text = String(cellData.price)
@@ -104,7 +106,7 @@ class itemCell: UITableViewCell {
 
 // MARK: - Style & Layout
 
-extension itemCell {
+extension ItemCell {
     
     func style1() {
         itemImage.translatesAutoresizingMaskIntoConstraints = false

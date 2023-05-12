@@ -60,7 +60,6 @@ class ShoppingVC: UIViewController {
     // MARK: - Selectors
     
     @objc func goToSummaryTapped() {
-        print("asd")
         let vc = SummaryVC()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -101,7 +100,7 @@ extension ShoppingVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: itemCell.identifier, for: indexPath) as! itemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.identifier, for: indexPath) as! ItemCell
         
         cell.delegate = self
         let data = viewModel.sectionitems?[indexPath.section][indexPath.row]
@@ -154,7 +153,7 @@ extension ShoppingVC {
         // tableView
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(itemCell.self, forCellReuseIdentifier: itemCell.identifier)
+        tableView.register(ItemCell.self, forCellReuseIdentifier: ItemCell.identifier)
         
         // activity indicator
         activityIndicator.color = .gray

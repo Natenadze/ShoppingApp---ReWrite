@@ -9,8 +9,6 @@ import XCTest
 
 
 
-@testable import FinalShopping
-
 final class FinalShoppingTests: XCTestCase {
 
     override func setUpWithError() throws {
