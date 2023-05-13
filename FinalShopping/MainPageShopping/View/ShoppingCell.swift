@@ -36,12 +36,31 @@ class ShoppingCell: UITableViewCell {
     let plusBtn = UIButton(type: .system)
     let minusBtn = UIButton(type: .system)
     
+    // Main Data
     var cellData: Product! {
         didSet {
             setupCell()
         }
     }
     
+    // Computed properties
+    var choosenQuantity: Int {
+        return cellData.choosenQuantity ?? 0
+    }
+    
+    var remainingQuantity: Int {
+        return Int(stockLbl.text!)!
+    }
+    
+    var currentItem: BusketModel {
+       let item = BusketModel(image: itemImage.image!,
+                               title: itemTitle.text!,
+                               quantity: choosenQuantity,
+                               subTotal: priceLbl.text!)
+        return item
+    }
+    
+    // Delegate
     weak var delegate: ShoppingCellDelegate?
 
     
@@ -77,11 +96,7 @@ class ShoppingCell: UITableViewCell {
     
     // MARK: - Selectors
     
-    // TODO: - Refactor needed for button functions
     @objc func plusBtnTapped() {
-        
-        guard let choosenQuantity = Int(choosenQuantityLbl.text!) else { return }
-        guard let remainingQuantity = Int(stockLbl.text!) else { return }
         
         if choosenQuantity < remainingQuantity {
             cellData.choosenQuantity = choosenQuantity + 1
@@ -89,32 +104,20 @@ class ShoppingCell: UITableViewCell {
             return
         }
         
-        
-        let item = BusketModel(image: itemImage.image!,
-                               title: itemTitle.text!,
-                               quantity: choosenQuantity + 1,
-                               subTotal: priceLbl.text!)
-        
-        delegate?.updateBusket(item: item, isAdding: true)
+        delegate?.updateBusket(item: currentItem, isAdding: true)
         delegate?.reloadData(forCell: self)
     }
 
     @objc func minusBtnTapped() {
-    
-        guard let choosenQuantity = Int(choosenQuantityLbl.text!) else { return }
         
         if choosenQuantity != 0 {
-            choosenQuantityLbl.text = String(choosenQuantity - 1)
+            cellData.choosenQuantity = choosenQuantity - 1
         } else {
             return
         }
         
-        let item = BusketModel(image: itemImage.image!,
-                               title: itemTitle.text!,
-                               quantity: choosenQuantity + 1,
-                               subTotal: priceLbl.text!)
-        
-        delegate?.updateBusket(item: item, isAdding: false)
+        delegate?.updateBusket(item: currentItem, isAdding: false)
+        delegate?.reloadData(forCell: self)
     }
 
 }

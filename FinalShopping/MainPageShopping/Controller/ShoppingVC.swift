@@ -14,11 +14,12 @@ class ShoppingVC: UIViewController {
     private let tableView = UITableView()
     private let bottomView = ShoppingBottomView()
     private let goToSummaryBtn = UIButton(type: .system)
+    
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     private var viewModel: ShoppingVM
 
-    var busket = [BusketModel]()
+   
     
     
     // MARK: - LifeCycle
@@ -64,7 +65,7 @@ class ShoppingVC: UIViewController {
     @objc func goToSummaryTapped() {
         // TODO: - pass correct VM here
         
-            let vm = SummaryVM(busketModel: busket)
+        let vm = SummaryVM(busketModel: viewModel.busket)
             let vc = SummaryVC(viewModel: vm)
             navigationController?.pushViewController(vc, animated: true)
     }
@@ -89,33 +90,41 @@ extension ShoppingVC: ShoppingCellDelegate, ShoppingVMDelegate {
         if let indexPath = tableView.indexPath(for: cell) {
             tableView.reloadRows(at: [indexPath], with: .automatic)
            }
+        bottomView.quantityLbl.text = viewModel.totalQuantity
+        bottomView.priceLbl.text = viewModel.totalPrice
     }
     
     func updateBusket(item: BusketModel, isAdding: Bool) {
+        
+        
         if isAdding {
             var foundItem = false
             
-            for (index, busketItem) in busket.enumerated() {
+            for (index, busketItem) in viewModel.busket.enumerated() {
                 if busketItem.title == item.title {
-                    busket[index].quantity += 1
+                    viewModel.busket[index].quantity += 1
                     foundItem = true
                     break
                 }
             }
             
             if !foundItem {
-                busket.append(item)
+                viewModel.busket.append(item)
             }
-        } else {
-            for (index, busketItem) in busket.enumerated() {
+            
+        }
+        
+        if !isAdding {
+            for (index, busketItem) in viewModel.busket.enumerated() {
                 if busketItem.title == item.title {
-                    if busket[index].quantity == 1 {
-                        busket.remove(at: index)
+                    if viewModel.busket[index].quantity == 1 {
+                        viewModel.busket.remove(at: index)
                         break
                     }
-                    busket[index].quantity -= 1
+                    viewModel.busket[index].quantity -= 1
                 }
             }
+            
         }
     }
 

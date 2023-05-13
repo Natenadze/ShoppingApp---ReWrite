@@ -23,9 +23,13 @@ class ShoppingVM {
         }
     }
     
-    weak var delegate: ShoppingVMDelegate?
+    var busket = [BusketModel]()
+    
+  
     
     // MARK: - Properties
+    
+    weak var delegate: ShoppingVMDelegate?
     
     func sectionitems(section: Int) -> String {
         sectionitems?[section][0].category.uppercased() ?? ""
@@ -37,6 +41,22 @@ class ShoppingVM {
      
     var getNumberOfSections: Int {
         sectionitems?.count ?? 0
+    }
+    
+    // bottom View info
+    
+    var totalQuantity: String {
+        var q = 0
+        busket.forEach { q += $0.quantity }
+        
+        return String(q)
+    }
+     
+    var totalPrice: String {
+        var p = 0
+        busket.forEach { p += (Int($0.subTotal)! * $0.quantity) }
+        
+        return String(p)
     }
     
     
