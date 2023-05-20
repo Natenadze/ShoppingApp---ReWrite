@@ -87,6 +87,7 @@ class ShoppingCell: UITableViewCell {
     func setupCell() {
         let url = URL(string: cellData.thumbnail)
         itemImage.kf.setImage(with: url)
+        
         choosenQuantityLbl.text = String(cellData.choosenQuantity ?? 0)
         itemTitle.text = cellData.title
         priceLbl.text = String(cellData.price)
@@ -229,8 +230,4 @@ extension ShoppingCell {
 }
 
 
-extension Notification.Name {
-    
-    static let plusNotif = NSNotification.Name("myNotif1")
-    static let minusNotif = NSNotification.Name("myNotif2")
-}
+

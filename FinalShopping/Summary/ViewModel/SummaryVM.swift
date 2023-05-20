@@ -5,7 +5,7 @@
 //  Created by Davit Natenadze on 12.05.23.
 //
 
-import Foundation
+import UIKit
 
 
 
@@ -33,7 +33,7 @@ struct SummaryVM {
         let formattedVat = String(format: "%.2f", vatValue)
         return Double(formattedVat)!
     }
-
+    
     
     var delivery: Double {
         if subTotal == 0 || subTotal >= 100 {
@@ -48,5 +48,28 @@ struct SummaryVM {
         
         return sum
     }
+    
+    //
+    
+    
+    var resultLogo: UIImage {
+        let declineLogo = UIImage(named: "decline")!
+        let confirmLogo = UIImage(named: "confirm")!
+        
+        if Total < 200 {
+            return confirmLogo
+        }
+        return declineLogo
+    }
+    
+    var resultMessage: String {
+        
+        if Total < 200 {
+            return "Success"
+        }
+        return "Payment Failure"
+    }
+    
+    
     
 }

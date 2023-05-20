@@ -62,6 +62,12 @@ class ShoppingVM {
     
     
     
+    // MARK: - LifeCycle
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        print("removed notif observer")
+    }
     
 
     // MARK: - Networking
@@ -127,8 +133,5 @@ class ShoppingVM {
         }
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-        print("removed notif observer")
-    }
+   
 }

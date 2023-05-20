@@ -42,10 +42,7 @@ class SummaryVC: UIViewController {
     
     @objc func payButtonTapped() {
         
-        guard let image = UIImage(named: "decline") else { return }
-        
-        // TODO: - put related message
-        let vc = PaymentResultVC(image: image, message: "Put some message here")
+        let vc = PaymentResultVC(image: viewModel.resultLogo, message: viewModel.resultMessage)
         navigationController?.pushViewController(vc, animated: true)
     }
     
