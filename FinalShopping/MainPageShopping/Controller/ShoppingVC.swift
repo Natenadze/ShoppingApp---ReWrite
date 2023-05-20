@@ -30,7 +30,6 @@ class ShoppingVC: UIViewController {
         setupData()
         style()
         layout()
-         
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,40 +91,6 @@ extension ShoppingVC: ShoppingCellDelegate, ShoppingVMDelegate {
            }
         bottomView.quantityLbl.text = viewModel.totalQuantity
         bottomView.priceLbl.text = viewModel.totalPrice
-    }
-    
-    func updateBusket(item: BusketModel, isAdding: Bool) {
-        
-        
-        if isAdding {
-            var foundItem = false
-            
-            for (index, busketItem) in viewModel.busket.enumerated() {
-                if busketItem.title == item.title {
-                    viewModel.busket[index].quantity += 1
-                    foundItem = true
-                    break
-                }
-            }
-            
-            if !foundItem {
-                viewModel.busket.append(item)
-            }
-            
-        }
-        
-        if !isAdding {
-            for (index, busketItem) in viewModel.busket.enumerated() {
-                if busketItem.title == item.title {
-                    if viewModel.busket[index].quantity == 1 {
-                        viewModel.busket.remove(at: index)
-                        break
-                    }
-                    viewModel.busket[index].quantity -= 1
-                }
-            }
-            
-        }
     }
 
 

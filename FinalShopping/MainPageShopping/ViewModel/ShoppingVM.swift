@@ -20,6 +20,7 @@ class ShoppingVM {
     var sectionitems: [[Product]]? {
         didSet {
             delegate?.updateView()
+            setupObserver()
         }
     }
     
@@ -82,5 +83,52 @@ class ShoppingVM {
         }
     }
     
+    // MARK: - Setup Notification Center observer
     
+    func setupObserver() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handlePlusNotif(_:)), name: .plusNotif, object: nil)
+         
+        NotificationCenter.default.addObserver(self, selector: #selector(handleMinusNotif(_:)), name: .minusNotif, object: nil)
+        
+    }
+    
+    @objc func handlePlusNotif(_ sender: Notification) {
+        let item = sender.userInfo!["item"] as! BusketModel
+        
+        var foundItem = false
+        
+        for (index, busketItem) in busket.enumerated() {
+            if busketItem.title == item.title {
+                busket[index].quantity += 1
+                foundItem = true
+                break
+            }
+        }
+        
+        if !foundItem {
+            busket.append(item)
+        }
+        
+        
+    }
+    
+    @objc func handleMinusNotif(_ sender: Notification) {
+        let item = sender.userInfo!["item"] as! BusketModel
+        
+        for (index, busketItem) in busket.enumerated() {
+            if busketItem.title == item.title {
+                if busket[index].quantity == 1 {
+                    busket.remove(at: index)
+                    break
+                }
+                busket[index].quantity -= 1
+            }
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        print("removed notif observer")
+    }
 }

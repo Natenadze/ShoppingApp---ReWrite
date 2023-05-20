@@ -11,7 +11,6 @@ import Kingfisher
 protocol ShoppingCellDelegate: AnyObject {
     
     func reloadData(forCell cell: UITableViewCell)
-    func updateBusket(item: BusketModel, isAdding: Bool)
 }
 
 
@@ -103,8 +102,7 @@ class ShoppingCell: UITableViewCell {
         } else {
             return
         }
-        
-        delegate?.updateBusket(item: currentItem, isAdding: true)
+        createPlusNotification()
         delegate?.reloadData(forCell: self)
     }
 
@@ -116,8 +114,20 @@ class ShoppingCell: UITableViewCell {
             return
         }
         
-        delegate?.updateBusket(item: currentItem, isAdding: false)
+        createMinusNotification()
         delegate?.reloadData(forCell: self)
+    }
+    
+    func createPlusNotification() {
+        let item = ["item": currentItem]
+        NotificationCenter.default.post(name: .plusNotif, object: nil, userInfo: item)
+        
+    }
+    
+    func createMinusNotification() {
+        let item = ["item": currentItem]
+        NotificationCenter.default.post(name: .minusNotif, object: nil, userInfo: item)
+        
     }
 
 }
@@ -216,4 +226,11 @@ extension ShoppingCell {
         
         
     }
+}
+
+
+extension Notification.Name {
+    
+    static let plusNotif = NSNotification.Name("myNotif1")
+    static let minusNotif = NSNotification.Name("myNotif2")
 }
