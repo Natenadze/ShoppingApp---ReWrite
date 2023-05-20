@@ -8,7 +8,7 @@
 import UIKit
 
 class ShoppingVC: UIViewController {
- 
+    
     
     // MARK: - Properties
     private let tableView = UITableView()
@@ -18,8 +18,8 @@ class ShoppingVC: UIViewController {
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     private var viewModel: ShoppingVM
-
-   
+    
+    
     
     
     // MARK: - LifeCycle
@@ -42,7 +42,7 @@ class ShoppingVC: UIViewController {
     init(viewModel: ShoppingVM) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-
+        
     }
     
     
@@ -50,7 +50,7 @@ class ShoppingVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
+    
     // MARK: - Helpers
     
     func setupData() {
@@ -65,8 +65,9 @@ class ShoppingVC: UIViewController {
         // TODO: - pass correct VM here
         
         let vm = SummaryVM(busketModel: viewModel.busket)
-            let vc = SummaryVC(viewModel: vm)
-            navigationController?.pushViewController(vc, animated: true)
+        let vc = SummaryVC(viewModel: vm)
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -81,6 +82,9 @@ extension ShoppingVC: ShoppingCellDelegate, ShoppingVMDelegate {
     func updateView() {
         tableView.reloadData()
         activityIndicator.stopAnimating()
+        bottomView.quantityLbl.text = "0"
+        bottomView.priceLbl.text = "0"
+        
     }
     
     // ShoppingCellDelegate
@@ -88,12 +92,13 @@ extension ShoppingVC: ShoppingCellDelegate, ShoppingVMDelegate {
     func reloadData(forCell cell: UITableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             tableView.reloadRows(at: [indexPath], with: .automatic)
-           }
+        }
         bottomView.quantityLbl.text = viewModel.totalQuantity
         bottomView.priceLbl.text = viewModel.totalPrice
+
     }
-
-
+    
+    
 }
 
 // MARK: - Table View
@@ -104,7 +109,7 @@ extension ShoppingVC: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.getNumberOfSections
     }
-
+    
     //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -117,6 +122,7 @@ extension ShoppingVC: UITableViewDataSource, UITableViewDelegate {
         cell.delegate = self
         let data = viewModel.sectionitems?[indexPath.section][indexPath.row]
         cell.cellData = data
+        
         
         return cell
     }
@@ -203,9 +209,24 @@ extension ShoppingVC {
             goToSummaryBtn.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor),
             goToSummaryBtn.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor),
             goToSummaryBtn.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor)
-
+            
         ])
         
     }
+    
+}
+
+
+
+
+extension ShoppingVC: SummaryVCDelegate {
+    func updateStock() {
+        
+        viewModel.updateMainBase()
+        viewModel.busket.removeAll()
+        tableView.reloadData()
+        updateView()
+    }
+    
     
 }

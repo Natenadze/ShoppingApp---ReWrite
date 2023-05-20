@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5D3633962A0E437800032723 /* SummaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3633952A0E437800032723 /* SummaryVM.swift */; };
-		5D48C3212A0D0FD00014B0F3 /* ShoppingCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48C3202A0D0FD00014B0F3 /* ShoppingCellVM.swift */; };
 		5D48C3232A0D429F0014B0F3 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48C3222A0D429F0014B0F3 /* SummaryCell.swift */; };
 		5D48C3252A0D615E0014B0F3 /* BusketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48C3242A0D615E0014B0F3 /* BusketModel.swift */; };
 		5D48C3282A0E3A980014B0F3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5D48C3272A0E3A980014B0F3 /* Kingfisher */; };
@@ -63,7 +62,6 @@
 /* Begin PBXFileReference section */
 		5D3633952A0E437800032723 /* SummaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVM.swift; sourceTree = "<group>"; };
 		5D48C31F2A0CED940014B0F3 /* FinalShopping.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FinalShopping.xctestplan; sourceTree = "<group>"; };
-		5D48C3202A0D0FD00014B0F3 /* ShoppingCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCellVM.swift; sourceTree = "<group>"; };
 		5D48C3222A0D429F0014B0F3 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
 		5D48C3242A0D615E0014B0F3 /* BusketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusketModel.swift; sourceTree = "<group>"; };
 		5D70FD692A1908FC000A3F6D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				5DCFFD622A0C0E0000DB39F0 /* ShoppingVM.swift */,
-				5D48C3202A0D0FD00014B0F3 /* ShoppingCellVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -508,7 +505,6 @@
 				5DCFFD5C2A0B97B000DB39F0 /* Utilities.swift in Sources */,
 				5DCFFD602A0B9C5200DB39F0 /* SetupTextField.swift in Sources */,
 				5DFB51222A09267C00878F08 /* ShoppingVC.swift in Sources */,
-				5D48C3212A0D0FD00014B0F3 /* ShoppingCellVM.swift in Sources */,
 				5DDC34D22A070A0E0000045F /* UIColor+Extension.swift in Sources */,
 				5D48C3252A0D615E0014B0F3 /* BusketModel.swift in Sources */,
 				5DFB51292A092D6F00878F08 /* SummaryView.swift in Sources */,

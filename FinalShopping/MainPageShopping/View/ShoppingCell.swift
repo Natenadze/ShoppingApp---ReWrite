@@ -44,7 +44,13 @@ class ShoppingCell: UITableViewCell {
     
     // Computed properties
     var choosenQuantity: Int {
-        return cellData.choosenQuantity ?? 0
+        get {
+            return cellData.choosenQuantity ?? 0
+        }
+        set {
+            cellData.choosenQuantity = newValue
+        }
+        
     }
     
     var remainingQuantity: Int {

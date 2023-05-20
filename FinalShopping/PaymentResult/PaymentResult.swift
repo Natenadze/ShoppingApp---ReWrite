@@ -41,7 +41,7 @@ class PaymentResultVC: UIViewController {
     
     // MARK: - Selector
     @objc func buttonTapped() {
-        print("Done")
+        navigationController?.popToRootViewController(animated: true)
     }
     
 }

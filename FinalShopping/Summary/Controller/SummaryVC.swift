@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SummaryVCDelegate: AnyObject {
+    func updateStock()
+}
+
 class SummaryVC: UIViewController {
     
     // MARK: - Properties
@@ -17,6 +21,7 @@ class SummaryVC: UIViewController {
     let viewModel: SummaryVM
     
     
+    weak var delegate: SummaryVCDelegate?
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -41,6 +46,7 @@ class SummaryVC: UIViewController {
     // MARK: -  Selectors
     
     @objc func payButtonTapped() {
+        delegate?.updateStock()
         
         let vc = PaymentResultVC(image: viewModel.resultLogo, message: viewModel.resultMessage)
         navigationController?.pushViewController(vc, animated: true)

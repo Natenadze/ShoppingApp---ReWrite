@@ -47,10 +47,10 @@ class ShoppingVM {
     // bottom View info
     
     var totalQuantity: String {
-        var q = 0
-        busket.forEach { q += $0.quantity }
+            var q = 0
+            busket.forEach { q += $0.quantity }
         
-        return String(q)
+            return String(q)
     }
      
     var totalPrice: String {
@@ -129,6 +129,17 @@ class ShoppingVM {
                     break
                 }
                 busket[index].quantity -= 1
+            }
+        }
+    }
+    
+    func updateMainBase() {
+        busket.forEach { item in
+            // Find the corresponding product in sectionitems
+            if let product = sectionitems?.flatMap({ $0 }).first(where: { $0.title == item.title }) {
+                // Subtract the quantity from the stock
+                product.stock -= item.quantity
+                product.choosenQuantity = 0
             }
         }
     }
