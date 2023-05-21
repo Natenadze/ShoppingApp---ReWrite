@@ -46,7 +46,9 @@ class SummaryVC: UIViewController {
     // MARK: -  Selectors
     
     @objc func payButtonTapped() {
-        delegate?.updateStock()
+        if viewModel.success {
+            delegate?.updateStock()
+        }
         
         let vc = PaymentResultVC(image: viewModel.resultLogo, message: viewModel.resultMessage)
         navigationController?.pushViewController(vc, animated: true)

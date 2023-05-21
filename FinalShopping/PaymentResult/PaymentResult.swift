@@ -29,6 +29,10 @@ class PaymentResultVC: UIViewController {
         layout()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     init(image: UIImage, message: String) {
         self.image = image
         self.message = message
@@ -41,7 +45,17 @@ class PaymentResultVC: UIViewController {
     
     // MARK: - Selector
     @objc func buttonTapped() {
-        navigationController?.popToRootViewController(animated: true)
+//        navigationController?.popToRootViewController(animated: true)
+        
+        if let controllers = navigationController?.viewControllers {
+            for vc in controllers {
+                if vc is ShoppingVC {
+                    navigationController?.popToViewController(vc, animated: true)
+                    break
+                }
+            }
+        }
+
     }
     
 }

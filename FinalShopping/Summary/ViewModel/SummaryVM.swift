@@ -49,6 +49,13 @@ struct SummaryVM {
         return sum
     }
     
+    var success: Bool {
+        if Total < 200 {
+            return true
+        }
+        return false
+    }
+    
     //
     
     

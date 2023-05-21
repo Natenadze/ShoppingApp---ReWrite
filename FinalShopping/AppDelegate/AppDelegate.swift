@@ -22,13 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-//        let navigation = UINavigationController(rootViewController: FirstPageVC())
-//        window?.rootViewController = navigation
+        let navigation = UINavigationController(rootViewController: FirstPageVC())
+        window?.rootViewController = navigation
         
         
-        let vm = ShoppingVM()
-        let nav2 = UINavigationController(rootViewController: ShoppingVC(viewModel: vm))
-        window?.rootViewController = nav2
+//        let vm = ShoppingVM()
+//        let nav2 = UINavigationController(rootViewController: ShoppingVC(viewModel: vm))
+//        window?.rootViewController = nav2
         
         return true
     }
