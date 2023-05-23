@@ -12,7 +12,7 @@ import UIKit
 struct SummaryVM {
     
     
-    var busketModel: [BusketModel]
+    var busketModel: [Busket]
     
     
     
@@ -22,7 +22,7 @@ struct SummaryVM {
         
         busketModel.forEach({ model in
             let q = model.quantity
-            sum += Int(model.subTotal)! * q
+            sum += Int(model.subTotal ?? "0")! * Int(q)
         })
         
         return sum

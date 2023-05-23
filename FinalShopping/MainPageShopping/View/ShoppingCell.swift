@@ -35,11 +35,14 @@ class ShoppingCell: UITableViewCell {
     let plusBtn = UIButton(type: .system)
     let minusBtn = UIButton(type: .system)
     
+    
+    // MARK: - CoreData Context
+    let context = CoreDataManager.shared.viewContext
+    
     // Main Data
     var cellData: Product! {
         didSet {
             setupCell()
-            print("cellData changed")
         }
     }
     
@@ -58,12 +61,16 @@ class ShoppingCell: UITableViewCell {
         return Int(stockLbl.text!)!
     }
     
-    var currentItem: BusketModel {
-       let item = BusketModel(image: itemImage.image!,
-                               title: itemTitle.text!,
-                               quantity: choosenQuantity,
-                               subTotal: priceLbl.text!)
-        return item
+    var currentItem: Busket {
+        get {
+            let item = Busket(context: context)
+            item.title = itemTitle.text!
+            item.quantity = Int64(choosenQuantity)
+            item.subTotal = priceLbl.text!
+            item.image = itemImage.image!.pngData()
+            
+            return item
+        }
     }
     
     // Delegate

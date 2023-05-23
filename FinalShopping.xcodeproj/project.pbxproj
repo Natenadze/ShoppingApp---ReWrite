@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5D3633962A0E437800032723 /* SummaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3633952A0E437800032723 /* SummaryVM.swift */; };
 		5D48C3232A0D429F0014B0F3 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48C3222A0D429F0014B0F3 /* SummaryCell.swift */; };
-		5D48C3252A0D615E0014B0F3 /* BusketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48C3242A0D615E0014B0F3 /* BusketModel.swift */; };
 		5D48C3282A0E3A980014B0F3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5D48C3272A0E3A980014B0F3 /* Kingfisher */; };
 		5D70FD6A2A1908FC000A3F6D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70FD692A1908FC000A3F6D /* NotificationManager.swift */; };
 		5D71623A2A0A717B0064DA54 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162392A0A717B0064DA54 /* RegisterVC.swift */; };
@@ -33,6 +32,7 @@
 		5DDC34D22A070A0E0000045F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34D12A070A0E0000045F /* UIColor+Extension.swift */; };
 		5DDC34DA2A09084C0000045F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34D92A09084C0000045F /* LoginVC.swift */; };
 		5DDC34FC2A0912B00000045F /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34FB2A0912B00000045F /* LogoView.swift */; };
+		5DDCD9FE2A1D353700314237 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCD9FD2A1D353700314237 /* CoreDataManager.swift */; };
 		5DDEA2802A1CCCCF00CF0279 /* ProductModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDEA27C2A1CCCCE00CF0279 /* ProductModel+CoreDataClass.swift */; };
 		5DDEA2812A1CCCCF00CF0279 /* ProductModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDEA27D2A1CCCCE00CF0279 /* ProductModel+CoreDataProperties.swift */; };
 		5DDEA2822A1CCCCF00CF0279 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDEA27E2A1CCCCE00CF0279 /* Product+CoreDataClass.swift */; };
@@ -45,7 +45,6 @@
 /* Begin PBXFileReference section */
 		5D3633952A0E437800032723 /* SummaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVM.swift; sourceTree = "<group>"; };
 		5D48C3222A0D429F0014B0F3 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
-		5D48C3242A0D615E0014B0F3 /* BusketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusketModel.swift; sourceTree = "<group>"; };
 		5D70FD692A1908FC000A3F6D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		5D7162392A0A717B0064DA54 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		5D71623B2A0A878C0064DA54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -58,7 +57,6 @@
 		5DCFFD5D2A0B984400DB39F0 /* SetupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupButton.swift; sourceTree = "<group>"; };
 		5DCFFD5F2A0B9C5200DB39F0 /* SetupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTextField.swift; sourceTree = "<group>"; };
 		5DCFFD622A0C0E0000DB39F0 /* ShoppingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVM.swift; sourceTree = "<group>"; };
-		5DDC34972A06FB1C0000045F /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FinalShopping.app; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShopping.app"; sourceTree = "<absolute>"; };
 		5DDC349A2A06FB1C0000045F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DDC349E2A06FB1C0000045F /* FirstPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageVC.swift; sourceTree = "<group>"; };
 		5DDC34A42A06FB1C0000045F /* FinalShopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinalShopping.xcdatamodel; sourceTree = "<group>"; };
@@ -68,6 +66,8 @@
 		5DDC34D12A070A0E0000045F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5DDC34D92A09084C0000045F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5DDC34FB2A0912B00000045F /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		5DDCD9F22A1D30FF00314237 /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DDCD9FD2A1D353700314237 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5DDEA27C2A1CCCCE00CF0279 /* ProductModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductModel+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		5DDEA27D2A1CCCCE00CF0279 /* ProductModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductModel+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5DDEA27E2A1CCCCE00CF0279 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -123,7 +123,6 @@
 				5DDEA27D2A1CCCCE00CF0279 /* ProductModel+CoreDataProperties.swift */,
 				5DDEA27E2A1CCCCE00CF0279 /* Product+CoreDataClass.swift */,
 				5DDEA27F2A1CCCCE00CF0279 /* Product+CoreDataProperties.swift */,
-				5D48C3242A0D615E0014B0F3 /* BusketModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,12 +147,14 @@
 			isa = PBXGroup;
 			children = (
 				5DDC34992A06FB1C0000045F /* FinalShopping */,
+				5DDCD9F22A1D30FF00314237 /* FinalShopping.app */,
 			);
 			sourceTree = "<group>";
 		};
 		5DDC34992A06FB1C0000045F /* FinalShopping */ = {
 			isa = PBXGroup;
 			children = (
+				5DDCD9FF2A1D354300314237 /* CoreDataManager */,
 				5DDC34CD2A06FC780000045F /* AppDelegate */,
 				5DCFFD572A0B895700DB39F0 /* Model */,
 				5D7162422A0ABD900064DA54 /* Networking */,
@@ -203,6 +204,14 @@
 				5DFB512D2A093A7300878F08 /* Controller */,
 			);
 			path = "Login+Register";
+			sourceTree = "<group>";
+		};
+		5DDCD9FF2A1D354300314237 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				5DDCD9FD2A1D353700314237 /* CoreDataManager.swift */,
+			);
+			path = CoreDataManager;
 			sourceTree = "<group>";
 		};
 		5DFA6A042A0ECC3300331F19 /* Files */ = {
@@ -310,7 +319,7 @@
 				5D48C3272A0E3A980014B0F3 /* Kingfisher */,
 			);
 			productName = FinalShopping;
-			productReference = 5DDC34972A06FB1C0000045F /* FinalShopping.app */;
+			productReference = 5DDCD9F22A1D30FF00314237 /* FinalShopping.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -374,6 +383,7 @@
 				5DDC349F2A06FB1C0000045F /* FirstPageVC.swift in Sources */,
 				5D48C3232A0D429F0014B0F3 /* SummaryCell.swift in Sources */,
 				5D71626A2A0AC16F0064DA54 /* ShoppingCell.swift in Sources */,
+				5DDCD9FE2A1D353700314237 /* CoreDataManager.swift in Sources */,
 				5DCFFD632A0C0E0000DB39F0 /* ShoppingVM.swift in Sources */,
 				5DDEA2822A1CCCCF00CF0279 /* Product+CoreDataClass.swift in Sources */,
 				5D7162442A0ABDA50064DA54 /* NetworkManager.swift in Sources */,
@@ -385,7 +395,6 @@
 				5DCFFD602A0B9C5200DB39F0 /* SetupTextField.swift in Sources */,
 				5DFB51222A09267C00878F08 /* ShoppingVC.swift in Sources */,
 				5DDC34D22A070A0E0000045F /* UIColor+Extension.swift in Sources */,
-				5D48C3252A0D615E0014B0F3 /* BusketModel.swift in Sources */,
 				5DFB51292A092D6F00878F08 /* SummaryView.swift in Sources */,
 				5D3633962A0E437800032723 /* SummaryVM.swift in Sources */,
 				5D71623A2A0A717B0064DA54 /* RegisterVC.swift in Sources */,

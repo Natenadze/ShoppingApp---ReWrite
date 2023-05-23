@@ -25,7 +25,7 @@ class SummaryCell: UITableViewCell {
     let priceSumLbl = UILabel()
     let dolarSign = UILabel()
 
-    var busketModel: BusketModel! {
+    var busketModel: Busket! {
         didSet {
             setupCell()
         }
@@ -54,7 +54,7 @@ class SummaryCell: UITableViewCell {
     // MARK: - Helper
     
     func setupCell() {
-        itemImage.image = busketModel.image
+        itemImage.image = UIImage(data: busketModel.image ?? Data())
         itemLbl.text = busketModel.title
         quantityLbl.text = String(busketModel.quantity)
         priceSumLbl.text = busketModel.subTotal

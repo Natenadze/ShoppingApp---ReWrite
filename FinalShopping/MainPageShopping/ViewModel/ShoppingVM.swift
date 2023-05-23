@@ -16,7 +16,7 @@ protocol ShoppingVMDelegate: AnyObject {
 
 class ShoppingVM {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = CoreDataManager.shared.viewContext
     
     // MARK: - Model
     
@@ -34,7 +34,7 @@ class ShoppingVM {
         }
     }
     
-    var busket = [BusketModel]()
+    var busket = [Busket]()
     
   
     
@@ -58,14 +58,14 @@ class ShoppingVM {
     
     var totalQuantity: String {
             var q = 0
-            busket.forEach { q += $0.quantity }
+        busket.forEach { q += Int($0.quantity) }
         
             return String(q)
     }
      
     var totalPrice: String {
         var p = 0
-        busket.forEach { p += (Int($0.subTotal)! * $0.quantity) }
+        busket.forEach { p += (Int($0.subTotal ?? "0")! * Int($0.quantity)) }
         
         return String(p)
     }
@@ -147,7 +147,7 @@ class ShoppingVM {
     // MARK: - Selectors
     
     @objc func handlePlusNotif(_ sender: Notification) {
-        let item = sender.userInfo!["item"] as! BusketModel
+        let item = sender.userInfo!["item"] as! Busket
         
         var foundItem = false
         
@@ -166,7 +166,7 @@ class ShoppingVM {
     }
     
     @objc func handleMinusNotif(_ sender: Notification) {
-        let item = sender.userInfo!["item"] as! BusketModel
+        let item = sender.userInfo!["item"] as! Busket
         
         for (index, busketItem) in busket.enumerated() {
             if busketItem.title == item.title {
