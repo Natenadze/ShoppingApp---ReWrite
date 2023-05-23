@@ -15,13 +15,18 @@ enum DecoderConfigurationError: Error {
 }
 
 public class Product: NSManagedObject, Decodable {
-    
-    var choosenQuantity = 0
 
+    // MARK: -
     enum CodingKeys: CodingKey {
         case brand, category, price, stock, title, thumbnail
     }
     
+    // MARK: - Property
+    
+    var choosenQuantity = 0
+    
+    
+    // MARK: - Init
     
     required convenience public init(from decoder: Decoder) throws {
         
@@ -32,6 +37,7 @@ public class Product: NSManagedObject, Decodable {
         self.init(context: context)
         
         let container  = try decoder.container(keyedBy: CodingKeys.self)
+        
         self.brand     = try container.decode(String.self, forKey: .brand)
         self.category  = try container.decode(String.self, forKey: .category)
         self.price     = try container.decode(Int64.self,  forKey: .price)

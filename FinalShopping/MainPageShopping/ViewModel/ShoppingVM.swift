@@ -188,6 +188,7 @@ class ShoppingVM {
                 product.choosenQuantity = 0
             }
         }
+        try? context.save()
     }
     
    
