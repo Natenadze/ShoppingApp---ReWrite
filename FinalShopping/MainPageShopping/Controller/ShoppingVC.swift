@@ -27,9 +27,9 @@ class ShoppingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        setupData()
         style()
         layout()
+        setupData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +62,6 @@ class ShoppingVC: UIViewController {
     // MARK: - Selectors
     
     @objc func goToSummaryTapped() {
-        // TODO: - pass correct VM here
         
         let vm = SummaryVM(busketModel: viewModel.busket)
         let vc = SummaryVC(viewModel: vm)
@@ -77,14 +76,12 @@ class ShoppingVC: UIViewController {
 extension ShoppingVC: ShoppingCellDelegate, ShoppingVMDelegate {
     
     
-    
     // ShoppingVMDelegate
     func updateView() {
         tableView.reloadData()
         activityIndicator.stopAnimating()
         bottomView.quantityLbl.text = "0"
         bottomView.priceLbl.text = "0"
-        
     }
     
     // ShoppingCellDelegate
@@ -95,7 +92,6 @@ extension ShoppingVC: ShoppingCellDelegate, ShoppingVMDelegate {
         }
         bottomView.quantityLbl.text = viewModel.totalQuantity
         bottomView.priceLbl.text = viewModel.totalPrice
-
     }
     
     
@@ -218,8 +214,8 @@ extension ShoppingVC {
 
 
 
-
 extension ShoppingVC: SummaryVCDelegate {
+    
     func updateStock() {
         
         viewModel.updateMainBase()

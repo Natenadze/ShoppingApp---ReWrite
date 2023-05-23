@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol ShoppingVMDelegate: AnyObject {
     
@@ -25,7 +26,6 @@ class ShoppingVM {
             setupObserver()
             do {
                 try context.save()
-                print("data saved")
             }
             catch {
                 print("couldnt save context (ShoppingVM)")
@@ -84,7 +84,16 @@ class ShoppingVM {
     
     func fetchData(withUrl url: String) {
         
-        var items = [[Product]]()
+//        var items = [[Product]]()
+        
+        // Check if data exists in CoreData
+        guard let existingData = fetchExistingDataFromCoreData() else { return }
+        
+        if existingData.count != 0  {
+              // Data exists in CoreData, update section items
+              self.updateSectionItems(items: existingData)
+              return
+          }
         
         NetworkManager.performURLRequest(url, context: context) { (data: ProductModel)  in
             
@@ -93,10 +102,23 @@ class ShoppingVM {
             if let products = data.products?.allObjects as? [Product] {
                 items = products
                 self.updateSectionItems(items: items)
-            }else {
+            } else {
                 print("error updating sectionItems (ShoppingVM)")
             }
             
+        }
+    }
+    
+    func fetchExistingDataFromCoreData() -> [Product]? {
+        // Fetch existing data from CoreData
+        let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            return results
+        } catch {
+            print("Error fetching existing data from CoreData: \(error)")
+            return nil
         }
     }
     
@@ -122,6 +144,8 @@ class ShoppingVM {
         
     }
     
+    // MARK: - Selectors
+    
     @objc func handlePlusNotif(_ sender: Notification) {
         let item = sender.userInfo!["item"] as! BusketModel
         
@@ -138,7 +162,6 @@ class ShoppingVM {
         if !foundItem {
             busket.append(item)
         }
-        
         
     }
     
