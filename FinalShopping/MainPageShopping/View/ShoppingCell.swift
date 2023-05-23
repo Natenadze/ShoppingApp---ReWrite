@@ -39,13 +39,14 @@ class ShoppingCell: UITableViewCell {
     var cellData: Product! {
         didSet {
             setupCell()
+            print("cellData changed")
         }
     }
     
     // Computed properties
     var choosenQuantity: Int {
         get {
-            return cellData.choosenQuantity ?? 0
+            return cellData.choosenQuantity
         }
         set {
             cellData.choosenQuantity = newValue
@@ -91,10 +92,10 @@ class ShoppingCell: UITableViewCell {
     // MARK: - Helper
     
     func setupCell() {
-        let url = URL(string: cellData.thumbnail)
+        let url = URL(string: cellData.thumbnail ?? "")
         itemImage.kf.setImage(with: url)
         
-        choosenQuantityLbl.text = String(cellData.choosenQuantity ?? 0)
+        choosenQuantityLbl.text = String(cellData.choosenQuantity)
         itemTitle.text = cellData.title
         priceLbl.text = String(cellData.price)
         stockLbl.text = String(cellData.stock)

@@ -15,12 +15,22 @@ protocol ShoppingVMDelegate: AnyObject {
 
 class ShoppingVM {
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     // MARK: - Model
     
     var sectionitems: [[Product]]? {
         didSet {
             delegate?.updateView()
             setupObserver()
+            do {
+                try context.save()
+                print("data saved")
+            }
+            catch {
+                print("couldnt save context (ShoppingVM)")
+            }
+            
         }
     }
     
@@ -33,7 +43,7 @@ class ShoppingVM {
     weak var delegate: ShoppingVMDelegate?
     
     func sectionitems(section: Int) -> String {
-        sectionitems?[section][0].category.uppercased() ?? ""
+        sectionitems?[section][0].category!.uppercased() ?? ""
     }
     
     func getNumberOfRowsInSection(section: Int) -> Int {
@@ -76,17 +86,30 @@ class ShoppingVM {
         
         var items = [[Product]]()
         
-        NetworkManager.performURLRequest(url) { (data: ProductModel)  in
+        NetworkManager.performURLRequest(url, context: context) { (data: ProductModel)  in
             
-            let itemsDict = Dictionary(grouping: data.products, by: {$0.category})
+            var items = [Product]()
             
-            for (_, item) in itemsDict.sorted(by: { $0.key < $1.key }) {
-                items.append(item)
+            if let products = data.products?.allObjects as? [Product] {
+                items = products
+                self.updateSectionItems(items: items)
+            }else {
+                print("error updating sectionItems (ShoppingVM)")
             }
             
-            self.sectionitems = items
-            
         }
+    }
+    
+    func updateSectionItems(items: [Product]) {
+        
+        var result = [[Product]]()
+        
+        let itemsDict = Dictionary(grouping: items, by: {$0.category})
+        
+        for (_, item) in itemsDict.sorted(by: { $0.key! < $1.key! }) {
+            result.append(item)
+        }
+        self.sectionitems = result
     }
     
     // MARK: - Setup Notification Center observer
@@ -138,7 +161,7 @@ class ShoppingVM {
             // Find the corresponding product in sectionitems
             if let product = sectionitems?.flatMap({ $0 }).first(where: { $0.title == item.title }) {
                 // Subtract the quantity from the stock
-                product.stock -= item.quantity
+                product.stock -= Int64(item.quantity)
                 product.choosenQuantity = 0
             }
         }

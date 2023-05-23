@@ -48,13 +48,16 @@ class LoginVC: UIViewController {
     
     @objc func buttonTapped() {
         
-        guard let email = emailTextField.text, !email.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty
-        else {
-            // TODO: - // Handle error case
-            print("Error in login")
-            return
-        }
+//        guard let email = emailTextField.text, !email.isEmpty,
+//              let password = passwordTextField.text, !password.isEmpty
+//        else {
+//            // TODO: - // Handle error case
+//            print("Error in login")
+//            return
+//        }
+        let email = "davit@gmail.com"
+        let password = "asd123!!"
+        
 
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let _ = error {

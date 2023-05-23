@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import CoreData
 
 // from my old project
 struct NetworkManager {
     
-    static func performURLRequest<T:Codable>(_ url: String, completion: @escaping (T)-> Void) {
+    static func performURLRequest<T:Decodable>(_ url: String, context: NSManagedObjectContext, completion: @escaping (T)-> Void) {
         
         guard let url = URL(string: url) else {
             print("no url")
@@ -31,7 +32,11 @@ struct NetworkManager {
                 return
                 
             }
-            let result = try? JSONDecoder().decode(T.self, from: data)
+            
+            let decoder = JSONDecoder()
+            decoder.userInfo[CodingUserInfoKey.managedObjectContext] = context
+            
+            let result = try? decoder.decode(T.self, from: data)
             guard let result else {
                 print("no result")
                 return
