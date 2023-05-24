@@ -2,7 +2,7 @@
 //  Product+CoreDataClass.swift
 //  FinalShopping
 //
-//  Created by Davit Natenadze on 23.05.23.
+//  Created by Davit Natenadze on 24.05.23.
 //
 //
 
@@ -21,9 +21,6 @@ public class Product: NSManagedObject, Decodable {
         case brand, category, price, stock, title, thumbnail
     }
     
-    // MARK: - Property
-    
-    var choosenQuantity = 0
     
     
     // MARK: - Init
@@ -45,7 +42,6 @@ public class Product: NSManagedObject, Decodable {
         self.title     = try container.decode(String.self, forKey: .title)
         self.title     = try container.decode(String.self, forKey: .title)
         self.thumbnail = try container.decode(String.self, forKey: .thumbnail)
-        
     }
     
 }

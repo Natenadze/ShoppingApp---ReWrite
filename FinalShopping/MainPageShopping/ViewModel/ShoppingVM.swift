@@ -24,23 +24,26 @@ class ShoppingVM {
         didSet {
             delegate?.updateView()
             setupObserver()
-            do {
-                try context.save()
-            }
-            catch {
-                print("couldnt save context (ShoppingVM)")
-            }
-            
+            CoreDataManager.shared.save()
         }
     }
     
     var busket = [Busket]()
     
+    
+    // MARK: - LifeCycle
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        print("removed notif observer")
+    }
   
     
     // MARK: - Properties
     
     weak var delegate: ShoppingVMDelegate?
+    
+    // MARK: -
     
     func sectionitems(section: Int) -> String {
         sectionitems?[section][0].category!.uppercased() ?? ""
@@ -72,34 +75,28 @@ class ShoppingVM {
     
     
     
-    // MARK: - LifeCycle
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-        print("removed notif observer")
-    }
-    
 
     // MARK: - Networking
     
     func fetchData(withUrl url: String) {
         
-//        var items = [[Product]]()
-        
         // Check if data exists in CoreData
         guard let existingData = fetchExistingDataFromCoreData() else { return }
         
         if existingData.count != 0  {
-              // Data exists in CoreData, update section items
-              self.updateSectionItems(items: existingData)
-              return
-          }
+            // Data exists in CoreData, update section items
+            self.updateSectionItems(items: existingData)
+            return
+        }
         
         NetworkManager.performURLRequest(url, context: context) { (data: ProductModel)  in
             
             var items = [Product]()
             
             if let products = data.products?.allObjects as? [Product] {
+                products.forEach { item in
+                    item.choosenQuantity = 0
+                }
                 items = products
                 self.updateSectionItems(items: items)
             } else {

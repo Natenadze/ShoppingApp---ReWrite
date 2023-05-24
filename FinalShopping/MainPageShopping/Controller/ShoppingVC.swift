@@ -80,13 +80,13 @@ extension ShoppingVC: ShoppingCellDelegate, ShoppingVMDelegate {
     func updateView() {
         tableView.reloadData()
         activityIndicator.stopAnimating()
-        bottomView.quantityLbl.text = "0"
-        bottomView.priceLbl.text = "0"
+        bottomView.quantityLbl.text = viewModel.totalQuantity
+        bottomView.priceLbl.text = viewModel.totalPrice
     }
     
     // ShoppingCellDelegate
     
-    func reloadData(forCell cell: UITableViewCell) {
+    func reloadCellData(forCell cell: UITableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
@@ -154,6 +154,19 @@ extension ShoppingVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 
+extension ShoppingVC: SummaryVCDelegate {
+    
+    func updateStock() {
+        
+        viewModel.updateMainBase()
+        viewModel.busket.removeAll()
+        updateView()
+    }
+    
+    
+}
+
+
 // MARK: - Style & Layout
 
 extension ShoppingVC {
@@ -214,15 +227,4 @@ extension ShoppingVC {
 
 
 
-extension ShoppingVC: SummaryVCDelegate {
-    
-    func updateStock() {
-        
-        viewModel.updateMainBase()
-        viewModel.busket.removeAll()
-        tableView.reloadData()
-        updateView()
-    }
-    
-    
-}
+

@@ -10,7 +10,7 @@ import Kingfisher
 
 protocol ShoppingCellDelegate: AnyObject {
     
-    func reloadData(forCell cell: UITableViewCell)
+    func reloadCellData(forCell cell: UITableViewCell)
 }
 
 
@@ -49,10 +49,10 @@ class ShoppingCell: UITableViewCell {
     // Computed properties
     var choosenQuantity: Int {
         get {
-            return cellData.choosenQuantity
+            return Int(cellData.choosenQuantity)
         }
         set {
-            cellData.choosenQuantity = newValue
+            cellData.choosenQuantity = Int64(newValue)
         }
         
     }
@@ -102,10 +102,10 @@ class ShoppingCell: UITableViewCell {
         let url = URL(string: cellData.thumbnail ?? "")
         itemImage.kf.setImage(with: url)
         
-        choosenQuantityLbl.text = String(cellData.choosenQuantity)
         itemTitle.text = cellData.title
         priceLbl.text = String(cellData.price)
         stockLbl.text = String(cellData.stock)
+        choosenQuantityLbl.text = String(cellData.choosenQuantity)
     }
     
     // MARK: - Selectors
@@ -113,24 +113,27 @@ class ShoppingCell: UITableViewCell {
     @objc func plusBtnTapped() {
         
         if choosenQuantity < remainingQuantity {
-            cellData.choosenQuantity = choosenQuantity + 1
+            cellData.choosenQuantity = Int64(choosenQuantity + 1)
+            CoreDataManager.shared.save()
         } else {
             return
         }
         createPlusNotification()
-        delegate?.reloadData(forCell: self)
+        delegate?.reloadCellData(forCell: self)
+    
     }
 
     @objc func minusBtnTapped() {
         
         if choosenQuantity != 0 {
-            cellData.choosenQuantity = choosenQuantity - 1
+            cellData.choosenQuantity = Int64(choosenQuantity - 1)
+            CoreDataManager.shared.save()
         } else {
             return
         }
         
         createMinusNotification()
-        delegate?.reloadData(forCell: self)
+        delegate?.reloadCellData(forCell: self)
     }
     
     func createPlusNotification() {

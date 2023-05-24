@@ -45,7 +45,6 @@ class PaymentResultVC: UIViewController {
     
     // MARK: - Selector
     @objc func buttonTapped() {
-//        navigationController?.popToRootViewController(animated: true)
         
         if let controllers = navigationController?.viewControllers {
             for vc in controllers {
