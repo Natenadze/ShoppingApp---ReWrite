@@ -138,25 +138,17 @@ class ShoppingVM {
     
     func setupObserver() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handlePlusNotif), name: .plusNotif, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(handleMinusNotif), name: .minusNotif, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleBasketNotif), name: .notif, object: nil)
         
     }
     
     // MARK: - Selectors
     
-    @objc func handlePlusNotif() {
+    @objc func handleBasketNotif() {
         let item = CoreDataManager.shared.fetchBusket()
         
         self.basket = item
         
-    }
-    
-    @objc func handleMinusNotif() {
-        let item = CoreDataManager.shared.fetchBusket()
-        
-        self.basket = item
     }
     
     func updateMainBase() {

@@ -10,6 +10,5 @@ import Foundation
 
 extension Notification.Name {
     
-    static let plusNotif = NSNotification.Name("myNotif1")
-    static let minusNotif = NSNotification.Name("myNotif2")
+    static let notif = NSNotification.Name("myNotif1")
 }

@@ -120,7 +120,7 @@ class ShoppingCell: UITableViewCell {
         } else {
             return
         }
-        createPlusNotification()
+        createBusketUpdateNotification()
         delegate?.reloadCellData(forCell: self)
     
     }
@@ -135,7 +135,7 @@ class ShoppingCell: UITableViewCell {
             return
         }
         
-        createMinusNotification()
+        createBusketUpdateNotification()
         delegate?.reloadCellData(forCell: self)
     }
     
@@ -147,9 +147,13 @@ class ShoppingCell: UITableViewCell {
             basket.append(currentItem)
         } else {
             var isFound = false
-            for item in basket {
+            for (index, item) in basket.enumerated() {
                 if item.title == itemTitle.text {
                     item.quantity += Int64(number)
+                    if item.quantity == 0 {
+                       let i = basket.remove(at: index)
+                        CoreDataManager.shared.deleteBusketItem(i)
+                    }
                     isFound = true
                     break
                 }
@@ -166,17 +170,10 @@ class ShoppingCell: UITableViewCell {
 
 
 
-
-    
-    func createPlusNotification() {
-        NotificationCenter.default.post(name: .plusNotif, object: nil)
-
+    func createBusketUpdateNotification() {
+        NotificationCenter.default.post(name: .notif, object: nil)
     }
     
-    func createMinusNotification() {
-        NotificationCenter.default.post(name: .minusNotif, object: nil)
-
-    }
 
 }
 
