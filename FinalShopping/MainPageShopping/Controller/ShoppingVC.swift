@@ -63,7 +63,8 @@ class ShoppingVC: UIViewController {
     
     @objc func goToSummaryTapped() {
         
-        let vm = SummaryVM(busketModel: viewModel.busket)
+        let basket = CoreDataManager.shared.fetchBusket()
+        let vm = SummaryVM(busketModel: basket)
         let vc = SummaryVC(viewModel: vm)
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
@@ -159,7 +160,9 @@ extension ShoppingVC: SummaryVCDelegate {
     func updateStock() {
         
         viewModel.updateMainBase()
-        viewModel.busket.removeAll()
+        viewModel.basket.forEach { item in
+            CoreDataManager.shared.deleteBusketItem(item)
+        }
         updateView()
     }
     

@@ -46,6 +46,8 @@ class ShoppingCell: UITableViewCell {
         }
     }
     
+    private var basket: [Busket] = []
+    
     // Computed properties
     var choosenQuantity: Int {
         get {
@@ -68,7 +70,6 @@ class ShoppingCell: UITableViewCell {
             item.quantity = Int64(choosenQuantity)
             item.subTotal = priceLbl.text!
             item.image = itemImage.image!.pngData()
-            
             return item
         }
     }
@@ -114,6 +115,7 @@ class ShoppingCell: UITableViewCell {
         
         if choosenQuantity < remainingQuantity {
             cellData.choosenQuantity = Int64(choosenQuantity + 1)
+            checkBasket(number: 1)
             CoreDataManager.shared.save()
         } else {
             return
@@ -127,6 +129,7 @@ class ShoppingCell: UITableViewCell {
         
         if choosenQuantity != 0 {
             cellData.choosenQuantity = Int64(choosenQuantity - 1)
+            checkBasket(number: -1)
             CoreDataManager.shared.save()
         } else {
             return
@@ -136,16 +139,43 @@ class ShoppingCell: UITableViewCell {
         delegate?.reloadCellData(forCell: self)
     }
     
-    func createPlusNotification() {
-        let item = ["item": currentItem]
-        NotificationCenter.default.post(name: .plusNotif, object: nil, userInfo: item)
+    
+    func checkBasket(number: Int) {
+        basket = CoreDataManager.shared.fetchBusket()
         
+        if basket.count == 0 {
+            basket.append(currentItem)
+        } else {
+            var isFound = false
+            for item in basket {
+                if item.title == itemTitle.text {
+                    item.quantity += Int64(number)
+                    isFound = true
+                    break
+                }
+            }
+            
+            if !isFound {
+                basket.append(currentItem)
+            }
+        }
+      
+        CoreDataManager.shared.save()
+    }
+
+
+
+
+
+    
+    func createPlusNotification() {
+        NotificationCenter.default.post(name: .plusNotif, object: nil)
+
     }
     
     func createMinusNotification() {
-        let item = ["item": currentItem]
-        NotificationCenter.default.post(name: .minusNotif, object: nil, userInfo: item)
-        
+        NotificationCenter.default.post(name: .minusNotif, object: nil)
+
     }
 
 }

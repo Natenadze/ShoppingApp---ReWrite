@@ -28,7 +28,11 @@ class ShoppingVM {
         }
     }
     
-    var busket = [Busket]()
+    var basket: [Busket]! {
+        didSet {
+            
+        }
+    }
     
     
     // MARK: - LifeCycle
@@ -37,7 +41,7 @@ class ShoppingVM {
         NotificationCenter.default.removeObserver(self)
         print("removed notif observer")
     }
-  
+    
     
     // MARK: - Properties
     
@@ -52,7 +56,7 @@ class ShoppingVM {
     func getNumberOfRowsInSection(section: Int) -> Int {
         sectionitems?[section].count ?? 0
     }
-     
+    
     var getNumberOfSections: Int {
         sectionitems?.count ?? 0
     }
@@ -60,22 +64,21 @@ class ShoppingVM {
     // bottom View info
     
     var totalQuantity: String {
-            var q = 0
-        busket.forEach { q += Int($0.quantity) }
-        
-            return String(q)
+        var q = 0
+        basket?.forEach { q += Int($0.quantity) }
+        return String(q)
     }
-     
+    
     var totalPrice: String {
         var p = 0
-        busket.forEach { p += (Int($0.subTotal ?? "0")! * Int($0.quantity)) }
+        basket?.forEach { p += (Int($0.subTotal ?? "0")! * Int($0.quantity)) }
         
         return String(p)
     }
     
     
     
-
+    
     // MARK: - Networking
     
     func fetchData(withUrl url: String) {
@@ -135,49 +138,29 @@ class ShoppingVM {
     
     func setupObserver() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handlePlusNotif(_:)), name: .plusNotif, object: nil)
-         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleMinusNotif(_:)), name: .minusNotif, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handlePlusNotif), name: .plusNotif, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleMinusNotif), name: .minusNotif, object: nil)
         
     }
     
     // MARK: - Selectors
     
-    @objc func handlePlusNotif(_ sender: Notification) {
-        let item = sender.userInfo!["item"] as! Busket
+    @objc func handlePlusNotif() {
+        let item = CoreDataManager.shared.fetchBusket()
         
-        var foundItem = false
-        
-        for (index, busketItem) in busket.enumerated() {
-            if busketItem.title == item.title {
-                busket[index].quantity += 1
-                foundItem = true
-                break
-            }
-        }
-        
-        if !foundItem {
-            busket.append(item)
-        }
+        self.basket = item
         
     }
     
-    @objc func handleMinusNotif(_ sender: Notification) {
-        let item = sender.userInfo!["item"] as! Busket
+    @objc func handleMinusNotif() {
+        let item = CoreDataManager.shared.fetchBusket()
         
-        for (index, busketItem) in busket.enumerated() {
-            if busketItem.title == item.title {
-                if busket[index].quantity == 1 {
-                    busket.remove(at: index)
-                    break
-                }
-                busket[index].quantity -= 1
-            }
-        }
+        self.basket = item
     }
     
     func updateMainBase() {
-        busket.forEach { item in
+        basket?.forEach { item in
             // Find the corresponding product in sectionitems
             if let product = sectionitems?.flatMap({ $0 }).first(where: { $0.title == item.title }) {
                 // Subtract the quantity from the stock
@@ -188,5 +171,5 @@ class ShoppingVM {
         try? context.save()
     }
     
-   
+    
 }

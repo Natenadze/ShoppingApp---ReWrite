@@ -65,7 +65,7 @@ class CoreDataManager {
     
     // Fetch
     
-    func fetchBusket() throws -> [Busket] {
+    func fetchBusket() -> [Busket] {
         let request: NSFetchRequest<Busket> = Busket.fetchRequest()
         
         var items = [Busket]()

@@ -67,6 +67,8 @@ class LoginVC: UIViewController {
 
             if let _ = result {
                 let vm = ShoppingVM()
+                let items = CoreDataManager.shared.fetchBusket()
+                vm.basket = items
                 let vc  = ShoppingVC(viewModel: vm)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
