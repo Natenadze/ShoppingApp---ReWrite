@@ -35,24 +35,12 @@
       </TestPlans>
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5DDC34AF2A06FB1D0000045F"
-               BuildableName = "FinalShoppingTests.xctest"
-               BlueprintName = "FinalShoppingTests"
-               ReferencedContainer = "container:FinalShopping.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5DDC34B92A06FB1D0000045F"
-               BuildableName = "FinalShoppingUITests.xctest"
-               BlueprintName = "FinalShoppingUITests"
+               BlueprintIdentifier = "5DD47A182A1F859400356641"
+               BuildableName = "FinalShoppingUnitTests.xctest"
+               BlueprintName = "FinalShoppingUnitTests"
                ReferencedContainer = "container:FinalShopping.xcodeproj">
             </BuildableReference>
          </TestableReference>

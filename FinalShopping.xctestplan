@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "AF2731C1-ED9E-4EBE-86BF-07B593FA39B0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FinalShopping.xcodeproj",
+      "identifier" : "5DDC34962A06FB1C0000045F",
+      "name" : "FinalShopping"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:FinalShopping.xcodeproj",
+        "identifier" : "5DD47A182A1F859400356641",
+        "name" : "FinalShoppingUnitTests"
+      }
+    }
+  ],
+  "version" : 1
+}
