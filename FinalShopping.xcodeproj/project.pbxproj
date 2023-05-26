@@ -24,7 +24,8 @@
 		5DCFFD5E2A0B984400DB39F0 /* SetupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFFD5D2A0B984400DB39F0 /* SetupButton.swift */; };
 		5DCFFD602A0B9C5200DB39F0 /* SetupTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFFD5F2A0B9C5200DB39F0 /* SetupTextField.swift */; };
 		5DCFFD632A0C0E0000DB39F0 /* ShoppingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFFD622A0C0E0000DB39F0 /* ShoppingVM.swift */; };
-		5DD47A1C2A1F859400356641 /* FinalShoppingUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD47A1B2A1F859400356641 /* FinalShoppingUnitTests.swift */; };
+		5DD47A1C2A1F859400356641 /* FirstPageVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD47A1B2A1F859400356641 /* FirstPageVCTests.swift */; };
+		5DD47A272A1F883600356641 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD47A262A1F883600356641 /* FirebaseAuth */; };
 		5DDC349B2A06FB1C0000045F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC349A2A06FB1C0000045F /* AppDelegate.swift */; };
 		5DDC349F2A06FB1C0000045F /* FirstPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC349E2A06FB1C0000045F /* FirstPageVC.swift */; };
 		5DDC34A52A06FB1C0000045F /* FinalShopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC34A32A06FB1C0000045F /* FinalShopping.xcdatamodeld */; };
@@ -56,6 +57,8 @@
 /* Begin PBXFileReference section */
 		5D3633952A0E437800032723 /* SummaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVM.swift; sourceTree = "<group>"; };
 		5D48C3222A0D429F0014B0F3 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
+		5D4DD28A2A20BCDE0033A796 /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FinalShopping.app; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShopping.app"; sourceTree = "<absolute>"; };
+		5D4DD28B2A20BCDE0033A796 /* FinalShoppingUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FinalShoppingUnitTests.xctest; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShoppingUnitTests.xctest"; sourceTree = "<absolute>"; };
 		5D70FD692A1908FC000A3F6D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		5D7162392A0A717B0064DA54 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		5D71623B2A0A878C0064DA54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -68,9 +71,8 @@
 		5DCFFD5D2A0B984400DB39F0 /* SetupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupButton.swift; sourceTree = "<group>"; };
 		5DCFFD5F2A0B9C5200DB39F0 /* SetupTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTextField.swift; sourceTree = "<group>"; };
 		5DCFFD622A0C0E0000DB39F0 /* ShoppingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVM.swift; sourceTree = "<group>"; };
-		5DD47A192A1F859400356641 /* FinalShoppingUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FinalShoppingUnitTests.xctest; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShoppingUnitTests.xctest"; sourceTree = "<absolute>"; };
-		5DD47A1B2A1F859400356641 /* FinalShoppingUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalShoppingUnitTests.swift; sourceTree = "<group>"; };
-		5DD47A222A1F874000356641 /* FinalShopping.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = FinalShopping.xctestplan; sourceTree = SOURCE_ROOT; };
+		5DD47A1B2A1F859400356641 /* FirstPageVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageVCTests.swift; sourceTree = "<group>"; };
+		5DD47A222A1F874000356641 /* FinalShopping.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FinalShopping.xctestplan; sourceTree = SOURCE_ROOT; };
 		5DDC349A2A06FB1C0000045F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DDC349E2A06FB1C0000045F /* FirstPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageVC.swift; sourceTree = "<group>"; };
 		5DDC34A42A06FB1C0000045F /* FinalShopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinalShopping.xcdatamodel; sourceTree = "<group>"; };
@@ -80,7 +82,6 @@
 		5DDC34D12A070A0E0000045F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5DDC34D92A09084C0000045F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5DDC34FB2A0912B00000045F /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
-		5DDCD9F22A1D30FF00314237 /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FinalShopping.app; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShopping.app"; sourceTree = "<absolute>"; };
 		5DDCD9FD2A1D353700314237 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5DDEA27C2A1CCCCE00CF0279 /* ProductModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductModel+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		5DDEA27D2A1CCCCE00CF0279 /* ProductModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductModel+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -96,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD47A272A1F883600356641 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +120,21 @@
 				5D3633952A0E437800032723 /* SummaryVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5D4DD2852A1FC5670033A796 /* FirstPageVCTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DD47A1B2A1F859400356641 /* FirstPageVCTests.swift */,
+			);
+			path = FirstPageVCTests;
+			sourceTree = "<group>";
+		};
+		5D4DD2892A1FE74D0033A796 /* LoginVCTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginVCTests;
 			sourceTree = "<group>";
 		};
 		5D7162422A0ABD900064DA54 /* Networking */ = {
@@ -167,8 +184,9 @@
 		5DD47A1A2A1F859400356641 /* FinalShoppingUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				5D4DD2852A1FC5670033A796 /* FirstPageVCTests */,
+				5D4DD2892A1FE74D0033A796 /* LoginVCTests */,
 				5DD47A222A1F874000356641 /* FinalShopping.xctestplan */,
-				5DD47A1B2A1F859400356641 /* FinalShoppingUnitTests.swift */,
 			);
 			path = FinalShoppingUnitTests;
 			sourceTree = "<group>";
@@ -344,8 +362,11 @@
 				5DD47A1E2A1F859400356641 /* PBXTargetDependency */,
 			);
 			name = FinalShoppingUnitTests;
+			packageProductDependencies = (
+				5DD47A262A1F883600356641 /* FirebaseAuth */,
+			);
 			productName = FinalShoppingUnitTests;
-			productReference = 5DD47A192A1F859400356641 /* FinalShoppingUnitTests.xctest */;
+			productReference = 5D4DD28B2A20BCDE0033A796 /* FinalShoppingUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5DDC34962A06FB1C0000045F /* FinalShopping */ = {
@@ -367,7 +388,7 @@
 				5D48C3272A0E3A980014B0F3 /* Kingfisher */,
 			);
 			productName = FinalShopping;
-			productReference = 5DDCD9F22A1D30FF00314237 /* FinalShopping.app */;
+			productReference = 5D4DD28A2A20BCDE0033A796 /* FinalShopping.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -437,7 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DD47A1C2A1F859400356641 /* FinalShoppingUnitTests.swift in Sources */,
+				5DD47A1C2A1F859400356641 /* FirstPageVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +786,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D71623D2A0A88400064DA54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		5DD47A262A1F883600356641 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D71623D2A0A88400064DA54 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 
