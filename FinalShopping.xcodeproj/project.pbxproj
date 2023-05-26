@@ -10,6 +10,7 @@
 		5D3633962A0E437800032723 /* SummaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3633952A0E437800032723 /* SummaryVM.swift */; };
 		5D48C3232A0D429F0014B0F3 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D48C3222A0D429F0014B0F3 /* SummaryCell.swift */; };
 		5D48C3282A0E3A980014B0F3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5D48C3272A0E3A980014B0F3 /* Kingfisher */; };
+		5D4DD28D2A20CB1A0033A796 /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DD28C2A20CB1A0033A796 /* LoginVCTests.swift */; };
 		5D70FD6A2A1908FC000A3F6D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70FD692A1908FC000A3F6D /* NotificationManager.swift */; };
 		5D71623A2A0A717B0064DA54 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7162392A0A717B0064DA54 /* RegisterVC.swift */; };
 		5D71623C2A0A878C0064DA54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D71623B2A0A878C0064DA54 /* GoogleService-Info.plist */; };
@@ -37,6 +38,7 @@
 		5DDCD9FE2A1D353700314237 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCD9FD2A1D353700314237 /* CoreDataManager.swift */; };
 		5DDEA2802A1CCCCF00CF0279 /* ProductModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDEA27C2A1CCCCE00CF0279 /* ProductModel+CoreDataClass.swift */; };
 		5DDEA2812A1CCCCF00CF0279 /* ProductModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDEA27D2A1CCCCE00CF0279 /* ProductModel+CoreDataProperties.swift */; };
+		5DE1E2CE2A20D43D00247351 /* RegisterVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1E2CD2A20D43D00247351 /* RegisterVCTests.swift */; };
 		5DF266982A1E3A0F0062BA83 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF266962A1E3A0F0062BA83 /* Product+CoreDataClass.swift */; };
 		5DF266992A1E3A0F0062BA83 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF266972A1E3A0F0062BA83 /* Product+CoreDataProperties.swift */; };
 		5DFB51222A09267C00878F08 /* ShoppingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFB51212A09267C00878F08 /* ShoppingVC.swift */; };
@@ -57,8 +59,7 @@
 /* Begin PBXFileReference section */
 		5D3633952A0E437800032723 /* SummaryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVM.swift; sourceTree = "<group>"; };
 		5D48C3222A0D429F0014B0F3 /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
-		5D4DD28A2A20BCDE0033A796 /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FinalShopping.app; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShopping.app"; sourceTree = "<absolute>"; };
-		5D4DD28B2A20BCDE0033A796 /* FinalShoppingUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FinalShoppingUnitTests.xctest; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShoppingUnitTests.xctest"; sourceTree = "<absolute>"; };
+		5D4DD28C2A20CB1A0033A796 /* LoginVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCTests.swift; sourceTree = "<group>"; };
 		5D70FD692A1908FC000A3F6D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		5D7162392A0A717B0064DA54 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		5D71623B2A0A878C0064DA54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -85,6 +86,9 @@
 		5DDCD9FD2A1D353700314237 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5DDEA27C2A1CCCCE00CF0279 /* ProductModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductModel+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		5DDEA27D2A1CCCCE00CF0279 /* ProductModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductModel+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		5DE1E2CA2A20CFAC00247351 /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FinalShopping.app; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShopping.app"; sourceTree = "<absolute>"; };
+		5DE1E2CB2A20CFAC00247351 /* FinalShoppingUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FinalShoppingUnitTests.xctest; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShoppingUnitTests.xctest"; sourceTree = "<absolute>"; };
+		5DE1E2CD2A20D43D00247351 /* RegisterVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVCTests.swift; sourceTree = "<group>"; };
 		5DF266962A1E3A0F0062BA83 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		5DF266972A1E3A0F0062BA83 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5DFB51212A09267C00878F08 /* ShoppingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVC.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		5D4DD2892A1FE74D0033A796 /* LoginVCTests */ = {
 			isa = PBXGroup;
 			children = (
+				5D4DD28C2A20CB1A0033A796 /* LoginVCTests.swift */,
 			);
 			path = LoginVCTests;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			children = (
 				5D4DD2852A1FC5670033A796 /* FirstPageVCTests */,
 				5D4DD2892A1FE74D0033A796 /* LoginVCTests */,
+				5DE1E2CC2A20D42300247351 /* RegisterVCTests */,
 				5DD47A222A1F874000356641 /* FinalShopping.xctestplan */,
 			);
 			path = FinalShoppingUnitTests;
@@ -260,6 +266,14 @@
 				5DDCD9FD2A1D353700314237 /* CoreDataManager.swift */,
 			);
 			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		5DE1E2CC2A20D42300247351 /* RegisterVCTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DE1E2CD2A20D43D00247351 /* RegisterVCTests.swift */,
+			);
+			path = RegisterVCTests;
 			sourceTree = "<group>";
 		};
 		5DFA6A042A0ECC3300331F19 /* Files */ = {
@@ -366,7 +380,7 @@
 				5DD47A262A1F883600356641 /* FirebaseAuth */,
 			);
 			productName = FinalShoppingUnitTests;
-			productReference = 5D4DD28B2A20BCDE0033A796 /* FinalShoppingUnitTests.xctest */;
+			productReference = 5DE1E2CB2A20CFAC00247351 /* FinalShoppingUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5DDC34962A06FB1C0000045F /* FinalShopping */ = {
@@ -388,7 +402,7 @@
 				5D48C3272A0E3A980014B0F3 /* Kingfisher */,
 			);
 			productName = FinalShopping;
-			productReference = 5D4DD28A2A20BCDE0033A796 /* FinalShopping.app */;
+			productReference = 5DE1E2CA2A20CFAC00247351 /* FinalShopping.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -458,6 +472,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4DD28D2A20CB1A0033A796 /* LoginVCTests.swift in Sources */,
+				5DE1E2CE2A20D43D00247351 /* RegisterVCTests.swift in Sources */,
 				5DD47A1C2A1F859400356641 /* FirstPageVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

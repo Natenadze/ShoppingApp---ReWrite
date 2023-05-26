@@ -15,7 +15,7 @@ class RegisterVC: UIViewController {
     let stackView = UIStackView()
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
-    let button = UIButton(type: .system)
+    let registerButton = UIButton(type: .system)
     let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 50))
     let paddingView2 = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 50))
     
@@ -68,8 +68,8 @@ class RegisterVC: UIViewController {
             }
         }
 
-        
     }
+    
 }
 
 
@@ -95,8 +95,8 @@ extension RegisterVC {
         passwordTextField.isSecureTextEntry = true
         
         // button
-        button.setup(withTitle: "Register")
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        registerButton.setup(withTitle: "Register")
+        registerButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
     }
     
@@ -107,7 +107,7 @@ extension RegisterVC {
         view.addSubview(topView)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(button)
+        stackView.addArrangedSubview(registerButton)
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
@@ -121,7 +121,7 @@ extension RegisterVC {
             //
             emailTextField.heightAnchor.constraint(equalToConstant: 50),
             passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-            button.heightAnchor.constraint(equalToConstant: 50),
+            registerButton.heightAnchor.constraint(equalToConstant: 50),
             
             // stack
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),

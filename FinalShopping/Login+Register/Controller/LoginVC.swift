@@ -15,10 +15,9 @@ class LoginVC: UIViewController {
     let stackView = UIStackView()
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
-    let button = UIButton(type: .system)
+    let loginButton = UIButton(type: .system)
     let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 50))
     let paddingView2 = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 50))
-    
     
     
     
@@ -29,15 +28,13 @@ class LoginVC: UIViewController {
         style()
         layout()
     }
-
+    
     
     // MARK: - Init
     
     init() {
- 
         super.init(nibName: nil, bundle: nil)
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -48,23 +45,21 @@ class LoginVC: UIViewController {
     
     @objc func buttonTapped() {
         
-//        guard let email = emailTextField.text, !email.isEmpty,
-//              let password = passwordTextField.text, !password.isEmpty
-//        else {
-//            // TODO: - // Handle error case
-//            print("Error in login")
-//            return
-//        }
-        let email = "davit@gmail.com"
-        let password = "asd123!!"
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty
+        else {
+            // TODO: - // Handle error case
+            print("Error in login")
+            return
+        }
         
-
+        
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let _ = error {
                 print("error signin ")
                 return
             }
-
+            
             if let _ = result {
                 let vm = ShoppingVM()
                 let items = CoreDataManager.shared.fetchBusket()
@@ -73,7 +68,6 @@ class LoginVC: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        
         
     }
 }
@@ -101,10 +95,9 @@ extension LoginVC {
         passwordTextField.isSecureTextEntry = true
         
         // button
-        button.setup(withTitle: "Login")
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        loginButton.setup(withTitle: "Login")
+        loginButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
-       
     }
     
     
@@ -114,7 +107,7 @@ extension LoginVC {
         view.addSubview(topView)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(button)
+        stackView.addArrangedSubview(loginButton)
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
@@ -128,7 +121,7 @@ extension LoginVC {
             //
             emailTextField.heightAnchor.constraint(equalToConstant: 50),
             passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-            button.heightAnchor.constraint(equalToConstant: 50),
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
             
             // stack
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
@@ -136,4 +129,5 @@ extension LoginVC {
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+    
 }

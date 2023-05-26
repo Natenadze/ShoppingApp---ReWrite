@@ -60,7 +60,6 @@ final class FirstPageVCTests: XCTestCase {
         
         waitForExpectations(timeout: 2)
         
-        
     }
     
     // MARK: - Second way to test same action
@@ -75,8 +74,6 @@ final class FirstPageVCTests: XCTestCase {
             XCTFail()
             return
         }
-        
-        
     }
 
 
