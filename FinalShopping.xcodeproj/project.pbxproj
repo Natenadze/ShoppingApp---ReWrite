@@ -39,6 +39,9 @@
 		5DDEA2802A1CCCCF00CF0279 /* ProductModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDEA27C2A1CCCCE00CF0279 /* ProductModel+CoreDataClass.swift */; };
 		5DDEA2812A1CCCCF00CF0279 /* ProductModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDEA27D2A1CCCCE00CF0279 /* ProductModel+CoreDataProperties.swift */; };
 		5DE1E2CE2A20D43D00247351 /* RegisterVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1E2CD2A20D43D00247351 /* RegisterVCTests.swift */; };
+		5DE1E2D12A2105A200247351 /* ShoppingVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1E2D02A2105A200247351 /* ShoppingVCTests.swift */; };
+		5DE1E2DB2A2261F200247351 /* LoginVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1E2DA2A2261F200247351 /* LoginVCUITests.swift */; };
+		5DE1E2DD2A2261F200247351 /* FinalShoppingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1E2DC2A2261F200247351 /* FinalShoppingUITestsLaunchTests.swift */; };
 		5DF266982A1E3A0F0062BA83 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF266962A1E3A0F0062BA83 /* Product+CoreDataClass.swift */; };
 		5DF266992A1E3A0F0062BA83 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF266972A1E3A0F0062BA83 /* Product+CoreDataProperties.swift */; };
 		5DFB51222A09267C00878F08 /* ShoppingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFB51212A09267C00878F08 /* ShoppingVC.swift */; };
@@ -48,6 +51,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		5DD47A1D2A1F859400356641 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DDC348F2A06FB1C0000045F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DDC34962A06FB1C0000045F;
+			remoteInfo = FinalShopping;
+		};
+		5DE1E2DE2A2261F200247351 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5DDC348F2A06FB1C0000045F /* Project object */;
 			proxyType = 1;
@@ -86,11 +96,16 @@
 		5DDCD9FD2A1D353700314237 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5DDEA27C2A1CCCCE00CF0279 /* ProductModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductModel+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		5DDEA27D2A1CCCCE00CF0279 /* ProductModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductModel+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		5DE1E2CA2A20CFAC00247351 /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FinalShopping.app; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShopping.app"; sourceTree = "<absolute>"; };
-		5DE1E2CB2A20CFAC00247351 /* FinalShoppingUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FinalShoppingUnitTests.xctest; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShoppingUnitTests.xctest"; sourceTree = "<absolute>"; };
 		5DE1E2CD2A20D43D00247351 /* RegisterVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVCTests.swift; sourceTree = "<group>"; };
+		5DE1E2D02A2105A200247351 /* ShoppingVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVCTests.swift; sourceTree = "<group>"; };
+		5DE1E2DA2A2261F200247351 /* LoginVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCUITests.swift; sourceTree = "<group>"; };
+		5DE1E2DC2A2261F200247351 /* FinalShoppingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalShoppingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5DF266962A1E3A0F0062BA83 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		5DF266972A1E3A0F0062BA83 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		5DF3C00F2A2265640058C5BE /* FinalShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FinalShopping.app; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShopping.app"; sourceTree = "<absolute>"; };
+		5DF3C0102A2265640058C5BE /* FinalShoppingUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FinalShoppingUnitTests.xctest; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShoppingUnitTests.xctest"; sourceTree = "<absolute>"; };
+		5DF3C0112A2265640058C5BE /* FinalShoppingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FinalShoppingUITests.xctest; path = "/Users/davitnatenadze/Desktop/FinalShopping/build/Debug-iphoneos/FinalShoppingUITests.xctest"; sourceTree = "<absolute>"; };
+		5DF3C0122A2267C20058C5BE /* UITestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITestPlan.xctestplan; sourceTree = "<group>"; };
 		5DFB51212A09267C00878F08 /* ShoppingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVC.swift; sourceTree = "<group>"; };
 		5DFB51232A09270800878F08 /* ShoppingBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingBottomView.swift; sourceTree = "<group>"; };
 		5DFB51282A092D6F00878F08 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
@@ -112,6 +127,13 @@
 				5D48C3282A0E3A980014B0F3 /* Kingfisher in Frameworks */,
 				5D71623F2A0A88400064DA54 /* FirebaseAuth in Frameworks */,
 				5D7162412A0A88400064DA54 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE1E2D52A2261F200247351 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +211,7 @@
 		5DD47A1A2A1F859400356641 /* FinalShoppingUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				5DE1E2CF2A21057300247351 /* ShoppingPageTests */,
 				5D4DD2852A1FC5670033A796 /* FirstPageVCTests */,
 				5D4DD2892A1FE74D0033A796 /* LoginVCTests */,
 				5DE1E2CC2A20D42300247351 /* RegisterVCTests */,
@@ -202,6 +225,7 @@
 			children = (
 				5DDC34992A06FB1C0000045F /* FinalShopping */,
 				5DD47A1A2A1F859400356641 /* FinalShoppingUnitTests */,
+				5DE1E2D92A2261F200247351 /* FinalShoppingUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,6 +298,24 @@
 				5DE1E2CD2A20D43D00247351 /* RegisterVCTests.swift */,
 			);
 			path = RegisterVCTests;
+			sourceTree = "<group>";
+		};
+		5DE1E2CF2A21057300247351 /* ShoppingPageTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DE1E2D02A2105A200247351 /* ShoppingVCTests.swift */,
+			);
+			path = ShoppingPageTests;
+			sourceTree = "<group>";
+		};
+		5DE1E2D92A2261F200247351 /* FinalShoppingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5DF3C0122A2267C20058C5BE /* UITestPlan.xctestplan */,
+				5DE1E2DA2A2261F200247351 /* LoginVCUITests.swift */,
+				5DE1E2DC2A2261F200247351 /* FinalShoppingUITestsLaunchTests.swift */,
+			);
+			path = FinalShoppingUITests;
 			sourceTree = "<group>";
 		};
 		5DFA6A042A0ECC3300331F19 /* Files */ = {
@@ -380,7 +422,7 @@
 				5DD47A262A1F883600356641 /* FirebaseAuth */,
 			);
 			productName = FinalShoppingUnitTests;
-			productReference = 5DE1E2CB2A20CFAC00247351 /* FinalShoppingUnitTests.xctest */;
+			productReference = 5DF3C0102A2265640058C5BE /* FinalShoppingUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5DDC34962A06FB1C0000045F /* FinalShopping */ = {
@@ -402,8 +444,26 @@
 				5D48C3272A0E3A980014B0F3 /* Kingfisher */,
 			);
 			productName = FinalShopping;
-			productReference = 5DE1E2CA2A20CFAC00247351 /* FinalShopping.app */;
+			productReference = 5DF3C00F2A2265640058C5BE /* FinalShopping.app */;
 			productType = "com.apple.product-type.application";
+		};
+		5DE1E2D72A2261F200247351 /* FinalShoppingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DE1E2E02A2261F200247351 /* Build configuration list for PBXNativeTarget "FinalShoppingUITests" */;
+			buildPhases = (
+				5DE1E2D42A2261F200247351 /* Sources */,
+				5DE1E2D52A2261F200247351 /* Frameworks */,
+				5DE1E2D62A2261F200247351 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DE1E2DF2A2261F200247351 /* PBXTargetDependency */,
+			);
+			name = FinalShoppingUITests;
+			productName = FinalShoppingUITests;
+			productReference = 5DF3C0112A2265640058C5BE /* FinalShoppingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -421,6 +481,10 @@
 					};
 					5DDC34962A06FB1C0000045F = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					5DE1E2D72A2261F200247351 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 5DDC34962A06FB1C0000045F;
 					};
 				};
 			};
@@ -443,6 +507,7 @@
 			targets = (
 				5DDC34962A06FB1C0000045F /* FinalShopping */,
 				5DD47A182A1F859400356641 /* FinalShoppingUnitTests */,
+				5DE1E2D72A2261F200247351 /* FinalShoppingUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -465,6 +530,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5DE1E2D62A2261F200247351 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -472,6 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE1E2D12A2105A200247351 /* ShoppingVCTests.swift in Sources */,
 				5D4DD28D2A20CB1A0033A796 /* LoginVCTests.swift in Sources */,
 				5DE1E2CE2A20D43D00247351 /* RegisterVCTests.swift in Sources */,
 				5DD47A1C2A1F859400356641 /* FirstPageVCTests.swift in Sources */,
@@ -512,6 +585,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5DE1E2D42A2261F200247351 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE1E2DB2A2261F200247351 /* LoginVCUITests.swift in Sources */,
+				5DE1E2DD2A2261F200247351 /* FinalShoppingUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -519,6 +601,11 @@
 			isa = PBXTargetDependency;
 			target = 5DDC34962A06FB1C0000045F /* FinalShopping */;
 			targetProxy = 5DD47A1D2A1F859400356641 /* PBXContainerItemProxy */;
+		};
+		5DE1E2DF2A2261F200247351 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DDC34962A06FB1C0000045F /* FinalShopping */;
+			targetProxy = 5DE1E2DE2A2261F200247351 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -736,6 +823,40 @@
 			};
 			name = Release;
 		};
+		5DE1E2E12A2261F200247351 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6PQF93RKP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nat.FinalShoppingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FinalShopping;
+			};
+			name = Debug;
+		};
+		5DE1E2E22A2261F200247351 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6PQF93RKP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nat.FinalShoppingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FinalShopping;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -762,6 +883,15 @@
 			buildConfigurations = (
 				5DDC34C52A06FB1D0000045F /* Debug */,
 				5DDC34C62A06FB1D0000045F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DE1E2E02A2261F200247351 /* Build configuration list for PBXNativeTarget "FinalShoppingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE1E2E12A2261F200247351 /* Debug */,
+				5DE1E2E22A2261F200247351 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

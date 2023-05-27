@@ -32,6 +32,9 @@
             reference = "container:FinalShopping.xctestplan"
             default = "YES">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:UITestPlan.xctestplan">
+         </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference
@@ -41,6 +44,17 @@
                BlueprintIdentifier = "5DD47A182A1F859400356641"
                BuildableName = "FinalShoppingUnitTests.xctest"
                BlueprintName = "FinalShoppingUnitTests"
+               ReferencedContainer = "container:FinalShopping.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5DE1E2D72A2261F200247351"
+               BuildableName = "FinalShoppingUITests.xctest"
+               BlueprintName = "FinalShoppingUITests"
                ReferencedContainer = "container:FinalShopping.xcodeproj">
             </BuildableReference>
          </TestableReference>

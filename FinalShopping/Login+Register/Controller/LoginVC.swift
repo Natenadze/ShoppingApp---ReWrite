@@ -65,6 +65,7 @@ class LoginVC: UIViewController {
                 let items = CoreDataManager.shared.fetchBusket()
                 vm.basket = items
                 let vc  = ShoppingVC(viewModel: vm)
+                vc.view.accessibilityIdentifier = "ShoppingVC" // Set id for UI Tests
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

@@ -14,11 +14,9 @@ class ShoppingVC: UIViewController {
     private let tableView = UITableView()
     private let bottomView = ShoppingBottomView()
     private let goToSummaryBtn = UIButton(type: .system)
-    
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     private var viewModel: ShoppingVM
-    
     
     
     
@@ -75,7 +73,6 @@ class ShoppingVC: UIViewController {
 // MARK: - Delegate Methods
 
 extension ShoppingVC: ShoppingCellDelegate, ShoppingVMDelegate {
-    
     
     // ShoppingVMDelegate
     func updateView() {

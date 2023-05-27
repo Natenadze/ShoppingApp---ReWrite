@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "0B6C31A9-3688-498E-ABAA-53BBEE106050",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:FinalShopping.xcodeproj",
+        "identifier" : "5DE1E2D72A2261F200247351",
+        "name" : "FinalShoppingUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

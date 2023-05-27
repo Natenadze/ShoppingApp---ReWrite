@@ -54,6 +54,7 @@ extension FirstPageVC {
         
         // Login Btn
         loginButton.setup(withTitle: "Login")
+        loginButton.accessibilityIdentifier = "firstPageLoginBtn"
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         
         // Register Btn
