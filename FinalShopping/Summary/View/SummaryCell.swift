@@ -25,7 +25,7 @@ class SummaryCell: UITableViewCell {
     let priceSumLbl = UILabel()
     let dolarSign = UILabel()
 
-    var busketModel: Busket! {
+    var busketModel: Basket! {
         didSet {
             setupCell()
         }

@@ -65,10 +65,10 @@ class CoreDataManager {
     
     // Fetch
     
-    func fetchBusket() -> [Busket] {
-        let request: NSFetchRequest<Busket> = Busket.fetchRequest()
+    func fetchBusket() -> [Basket] {
+        let request: NSFetchRequest<Basket> = Basket.fetchRequest()
         
-        var items = [Busket]()
+        var items = [Basket]()
         
         do {
             items =  try viewContext.fetch(request)
@@ -95,7 +95,7 @@ class CoreDataManager {
     
     // DELETE
     
-    func deleteBusketItem(_ item: Busket) {
+    func deleteBusketItem(_ item: Basket) {
         viewContext.delete(item)
         save()
     }

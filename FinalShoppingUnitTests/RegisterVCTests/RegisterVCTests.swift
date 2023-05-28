@@ -47,11 +47,11 @@ final class RegisterVCTests: XCTestCase {
         XCTAssertEqual(registerVCActions.count, 1)
     }
     
-    func testWhenLoginButtonTapped_PresentsShoppingVC() {
+    func testWhenRegisterButtonTapped_PresentsLoginVC() {
         
         // Arrange
-        sut.emailTextField.text = "SomeEmail@gmail.com"
-        sut.passwordTextField.text = "correctPassword2"
+        sut.emailTextField.text = "someEmail@gmail2.com"
+        sut.passwordTextField.text = "correctPassword"
         
         let predicate = NSPredicate { input, _ in
             return (input as? UINavigationController)?.topViewController is LoginVC

@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "0B6C31A9-3688-498E-ABAA-53BBEE106050",
+      "id" : "826C9F65-3857-4E3E-B1AE-F155B50A799C",
       "name" : "Configuration 1",
       "options" : {
 
@@ -17,6 +17,13 @@
         "containerPath" : "container:FinalShopping.xcodeproj",
         "identifier" : "5DE1E2D72A2261F200247351",
         "name" : "FinalShoppingUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:FinalShopping.xcodeproj",
+        "identifier" : "5DD47A182A1F859400356641",
+        "name" : "FinalShoppingUnitTests"
       }
     }
   ],

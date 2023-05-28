@@ -62,10 +62,10 @@ final class LoginVCUITests: XCTestCase {
         firstPageLoginBtn.tap()  // Go to LoginVC
         
         emailTF.tap()
-        emailTF.typeText("correctemail@gmail.com")
+        emailTF.typeText("test@gmail.com")
         
         passwordTF.tap()
-        passwordTF.typeText("correctPassword")
+        passwordTF.typeText("asd123!!")
         
         loginVCLoginBtn.tap()
 

@@ -62,7 +62,7 @@ class ShoppingVC: UIViewController {
     @objc func goToSummaryTapped() {
         
         let basket = CoreDataManager.shared.fetchBusket()
-        let vm = SummaryVM(busketModel: basket)
+        let vm = SummaryVM(basketModel: basket)
         let vc = SummaryVC(viewModel: vm)
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)

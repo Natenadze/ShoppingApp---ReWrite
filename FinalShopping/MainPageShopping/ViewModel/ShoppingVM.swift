@@ -28,7 +28,7 @@ class ShoppingVM {
         }
     }
     
-    var basket: [Busket]! {
+    var basket: [Basket]! {
         didSet {
             
         }

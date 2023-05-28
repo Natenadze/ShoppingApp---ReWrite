@@ -60,13 +60,13 @@ extension SummaryVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return viewModel.busketModel.count
+        return viewModel.basketModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SummaryCell.identifier, for: indexPath) as! SummaryCell
         
-        cell.busketModel = viewModel.busketModel[indexPath.row]
+        cell.busketModel = viewModel.basketModel[indexPath.row]
         
         return cell
     }

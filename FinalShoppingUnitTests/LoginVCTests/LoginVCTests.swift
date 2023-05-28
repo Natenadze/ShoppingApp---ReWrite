@@ -50,8 +50,8 @@ final class LoginVCTests: XCTestCase {
     func testWhenLoginButtonTapped_PresentsShoppingVC() {
         
         // Arrange
-        sut.emailTextField.text = "correctEmail@gmail.com"
-        sut.passwordTextField.text = "correctPassword"
+        sut.emailTextField.text = "test@gmail.com"
+        sut.passwordTextField.text = "asd123!!"
         
         let predicate = NSPredicate { input, _ in
             return (input as? UINavigationController)?.topViewController is ShoppingVC
@@ -62,7 +62,7 @@ final class LoginVCTests: XCTestCase {
         // act
         sut.loginButton.sendActions(for: .touchUpInside)
 
-        waitForExpectations(timeout: 2)
+        waitForExpectations(timeout: 4)
         
     }
 

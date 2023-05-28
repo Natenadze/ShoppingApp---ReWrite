@@ -46,7 +46,7 @@ class ShoppingCell: UITableViewCell {
         }
     }
     
-    private var basket: [Busket] = []
+    private var basket: [Basket] = []
     
     // Computed properties
     var choosenQuantity: Int {
@@ -63,9 +63,9 @@ class ShoppingCell: UITableViewCell {
         return Int(stockLbl.text!)!
     }
     
-    var currentItem: Busket {
+    var currentItem: Basket {
         get {
-            let item = Busket(context: context)
+            let item = Basket(context: context)
             item.title = itemTitle.text!
             item.quantity = Int64(choosenQuantity)
             item.subTotal = priceLbl.text!
@@ -120,7 +120,7 @@ class ShoppingCell: UITableViewCell {
         } else {
             return
         }
-        createBusketUpdateNotification()
+        createBasketUpdateNotification()
         delegate?.reloadCellData(forCell: self)
     
     }
@@ -135,7 +135,7 @@ class ShoppingCell: UITableViewCell {
             return
         }
         
-        createBusketUpdateNotification()
+        createBasketUpdateNotification()
         delegate?.reloadCellData(forCell: self)
     }
     
@@ -170,7 +170,7 @@ class ShoppingCell: UITableViewCell {
 
 
 
-    func createBusketUpdateNotification() {
+    func createBasketUpdateNotification() {
         NotificationCenter.default.post(name: .notif, object: nil)
     }
     

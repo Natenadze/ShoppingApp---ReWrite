@@ -12,15 +12,14 @@ import UIKit
 struct SummaryVM {
     
     
-    var busketModel: [Busket]
+    var basketModel: [Basket]
     
     
     
     var subTotal: Int {
         var sum = 0
         
-        
-        busketModel.forEach({ model in
+        basketModel.forEach({ model in
             let q = model.quantity
             sum += Int(model.subTotal ?? "0")! * Int(q)
         })
@@ -45,8 +44,8 @@ struct SummaryVM {
     
     var Total: Double {
         let sum = Double(subTotal) + vat + delivery
-        
-        return sum
+        let formattedSum = String(format: "%.2f", sum)
+        return Double(formattedSum)!
     }
     
     var success: Bool {
