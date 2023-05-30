@@ -3,8 +3,7 @@
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 .DS_Store
-GoogleService-Info.plist
-DevicePushKey-Info.plist
+*.plist
 
 ## User settings
 xcuserdata/
@@ -60,13 +59,10 @@ playground.xcworkspace
 #
 # Pods/
 #
+
 # Add this line if you want to avoid checking in source code from the Xcode workspace
 # *.xcworkspace
 
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
 
 Carthage/Build/
 
